@@ -67,6 +67,9 @@ const usersModelObject = usersFunction( pool );
 const infoFunction = require('./models/info');
 const infoModelObject = infoFunction( pool );
 
+const mealsFunction = require('./models/meals');
+const mealsModelObject = mealsFunction( pool );
+
 /*
  * ===================================================
  * ===================================================
@@ -93,5 +96,6 @@ module.exports = {
    */
   users: usersModelObject,
   info: infoModelObject,
+  meals: mealsModelObject,
 
 };

@@ -27,8 +27,6 @@ module.exports = (dbPoolInstance) => {
   };
 
   let registerUser = (newUserInfo) => {
-    console.log("inside register user model");
-    console.log(newUserInfo);
     let query = "INSERT INTO users (username, password, email, name) VALUES ($1, $2, $3, $4) RETURNING id";
     let arr = [newUserInfo.username, newUserInfo.password, newUserInfo.email, newUserInfo.name];
     dbPoolInstance.query(query, arr, (error, queryResult) => {

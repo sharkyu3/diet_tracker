@@ -18,9 +18,9 @@ module.exports = (db) => {
         };
 
         var getInfo = (allFood) => {
-            data.food = allFood;
+            data.food = allFood.reverse();
             var getEx = (allExercises) => {
-                data.exercise = allExercises;
+                data.exercise = allExercises.reverse();
                 // once done, render
                 res.render('homepage', data);
             }

@@ -9,41 +9,41 @@ VALUES
 ('gina', '456', 'gina@gmail.com', 'Gina', '1');
 
 INSERT INTO ecosystems
-(groupName, groupPW, description, admin_id, plans_id)
+(group_name, group_pw, description, admin_id, plans_id)
 VALUES
 ('testgroup', '111', 'testing 123', '1', '1');
 
 INSERT INTO plans
-(periodInWeeks, weeklyExerciseSessions, weeklyCheats, startDate)
+(period_in_weeks, weekly_exercise_sessions, weekly_cheats, start_date)
 VALUES
 ('4', '3', '3', '2019-07-28');
 
 INSERT INTO meals
-(title, photoURL, creationInfo, cheat, users_id)
+(title, photo_URL, cheat, users_id)
 VALUES
-('Bah Chor Mee', '', CURRENT_TIMESTAMP, 'FALSE', '1');
+('Bah Chor Mee', '', 'FALSE', '1');
 
 INSERT INTO meals
-(title, photoURL, creationInfo, cheat, users_id)
+(title, photo_URL, cheat, users_id)
 VALUES
-('Ayam Penyet', '', CURRENT_TIMESTAMP, 'FALSE', '1');
+('Ayam Penyet', '', 'FALSE', '1');
 
 INSERT INTO meals
-(title, photoURL, creationInfo, cheat, users_id)
+(title, photo_URL, cheat, users_id)
 VALUES
-('Prawn noodles', '', CURRENT_TIMESTAMP, 'FALSE', '2');
+('Prawn noodles', '', 'FALSE', '2');
 
 INSERT INTO exercises
-(type, duration, creationInfo, users_id)
+(type, duration, users_id)
 VALUES
-('Running', '20', CURRENT_TIMESTAMP, '1');
+('Running', '20', '1');
 
 INSERT INTO exercises
-(type, duration, creationInfo, users_id)
+(type, duration, users_id)
 VALUES
-('Netball', '120', CURRENT_TIMESTAMP, '2');
+('Netball', '120', '2');
 
 INSERT INTO exercises
-(type, duration, creationInfo, users_id)
+(type, duration, users_id)
 VALUES
-('Yoga', '60', CURRENT_TIMESTAMP, '2');
+('Yoga', '60', '2');

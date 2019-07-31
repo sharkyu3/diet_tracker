@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS ecosystems (
 	id SERIAL PRIMARY KEY,
-	groupName TEXT,
-	groupPW TEXT,
+	group_name TEXT,
+	group_pw TEXT,
 	description TEXT,
 	admin_id INTEGER,
 	plans_id INTEGER
@@ -18,17 +18,17 @@ CREATE TABLE IF NOT EXISTS ecosystems (
 
 CREATE TABLE IF NOT EXISTS plans (
 	id SERIAL PRIMARY KEY,
-	periodInWeeks INTEGER,
-	weeklyExerciseSessions INTEGER,
-	weeklyCheats INTEGER,
-	startDate DATE
+	period_in_weeks INTEGER,
+	weekly_exercise_sessions INTEGER,
+	weekly_cheats INTEGER,
+	start_date DATE
 );
 
 CREATE TABLE IF NOT EXISTS meals (
 	id SERIAL PRIMARY KEY,
 	title TEXT,
-	photoURL TEXT,
-	creationInfo TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	photo_URL TEXT,
+	creation_info TIMESTAMP DEFAULT now(),
 	cheat BOOLEAN,
 	users_id INTEGER
 );
@@ -37,6 +37,6 @@ CREATE TABLE IF NOT EXISTS exercises (
 	id SERIAL PRIMARY KEY,
 	type TEXT,
 	duration INTEGER,
-	creationInfo TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	creation_info TIMESTAMP DEFAULT now(),
 	users_id INTEGER
 );
