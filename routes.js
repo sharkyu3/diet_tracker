@@ -14,11 +14,15 @@ module.exports = (app, allModels) => {
 
   // require the controller
   const usersControllerCallbacks = require('./controllers/users')(allModels);
+  const infoControllerCallbacks = require('./controllers/info')(allModels);
+
+
 
   app.get('/', usersControllerCallbacks.index);
   app.get('/login', usersControllerCallbacks.setlogin);
   app.get('/register', usersControllerCallbacks.register);
   app.post('/home', usersControllerCallbacks.check);
   app.post('/welcome', usersControllerCallbacks.signup);
+  app.get('/home', infoControllerCallbacks.index);
 
 };

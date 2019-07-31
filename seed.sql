@@ -26,6 +26,11 @@ VALUES
 INSERT INTO meals
 (title, photoURL, creationInfo, cheat, users_id)
 VALUES
+('Ayam Penyet', '', CURRENT_TIMESTAMP, 'FALSE', '1');
+
+INSERT INTO meals
+(title, photoURL, creationInfo, cheat, users_id)
+VALUES
 ('Prawn noodles', '', CURRENT_TIMESTAMP, 'FALSE', '2');
 
 INSERT INTO exercises
@@ -37,3 +42,8 @@ INSERT INTO exercises
 (type, duration, creationInfo, users_id)
 VALUES
 ('Netball', '120', CURRENT_TIMESTAMP, '2');
+
+INSERT INTO exercises
+(type, duration, creationInfo, users_id)
+VALUES
+('Yoga', '60', CURRENT_TIMESTAMP, '2');

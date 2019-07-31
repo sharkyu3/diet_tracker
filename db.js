@@ -64,6 +64,9 @@ pool.on('error', function (err) {
 const usersFunction = require('./models/users');
 const usersModelObject = usersFunction( pool );
 
+const infoFunction = require('./models/info');
+const infoModelObject = infoFunction( pool );
+
 /*
  * ===================================================
  * ===================================================
@@ -89,5 +92,6 @@ module.exports = {
    * ADD APP MODELS HERE
    */
   users: usersModelObject,
+  info: infoModelObject,
 
 };

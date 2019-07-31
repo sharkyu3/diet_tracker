@@ -6,7 +6,7 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  let homepageControllerCallback = (req, res) => {
+  let landingControllerCallback = (req, res) => {
     res.render('landing');
   };
 
@@ -31,6 +31,7 @@ module.exports = (db) => {
                 console.log("in login controller check for password");
                 res.cookie('loggedin', 'true');
                 res.cookie('user_id', userInfo.id);
+                res.cookie('eco', userInfo.ecosystems_id);
                 res.redirect('/home');
             }else{
                 //AJAX pop up wrong password
@@ -43,8 +44,6 @@ module.exports = (db) => {
   };
 
   let signupControllerCallback = (req, res) =>{
-    console.log("inside signup controller");
-    console.log(req.body);
     let newUserInfo = req.body;
     res.cookie('loggedin', 'true');
     res.redirect('/welcome');
@@ -58,7 +57,7 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    index: homepageControllerCallback,
+    index: landingControllerCallback,
     setlogin: loginControllerCallback,
     register: registerControllerCallback,
     check: checkPasswordControllerCallback,
