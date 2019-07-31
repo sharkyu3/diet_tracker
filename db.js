@@ -35,7 +35,7 @@ if( process.env.DATABASE_URL ){
   configs = {
     user: 'huiyu',
     host: '127.0.0.1',
-    database: 'tweedr',
+    database: 'dietdb',
     port: 5432
   };
 }
@@ -61,15 +61,8 @@ pool.on('error', function (err) {
  * ===================================================
  */
 
-const loginFunction = require('./models/login');
-const loginModelObject = loginFunction( pool );
-
-const registerFunction = require('./models/register');
-const registerModelObject = registerFunction( pool );
-
-const allTweetsFunction = require('./models/tweets');
-const tweetsModelObject = allTweetsFunction( pool );
-
+const usersFunction = require('./models/users');
+const usersModelObject = usersFunction( pool );
 
 /*
  * ===================================================
@@ -83,7 +76,6 @@ const tweetsModelObject = allTweetsFunction( pool );
  * ===================================================
  */
 
-
 module.exports = {
   //make queries directly from here
   queryInterface: (text, params, callback) => {
@@ -96,12 +88,6 @@ module.exports = {
   /*
    * ADD APP MODELS HERE
    */
-
-  // users: userModelsObject,
-  // pokemon: pokemonModelsObject
-
-  login: loginModelObject,
-  register: registerModelObject,
-  tweets: tweetsModelObject
+  users: usersModelObject,
 
 };
