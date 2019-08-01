@@ -46,7 +46,10 @@ let checkPasswordControllerCallback = (req, res) => {
         } else{
             if(groupInfo.group_pw === currentPw){
                 console.log("in group login controller check for password");
-                res.cookie('eco', groupInfo.id);
+                let userId = req.cookies.user_id;
+                let ecoId = groupInfo.id;
+                res.cookie('eco', ecoId);
+                db.users.updateInfo(userId, ecoId);
                 res.redirect('/home');
             }else{
                 //AJAX pop up wrong password

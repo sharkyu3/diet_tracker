@@ -39,8 +39,20 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
+  let updateInfo = (userId, ecoId) => {
+    let query = "UPDATE users SET ecosystems_id = $1 WHERE users.id = $2";
+    let arr = [ecoId, userId];
+    dbPoolInstance.query(query, arr, (error, queryResult) => {
+      if( error ){
+        console.log("error: " + error);
+      }else{
+        console.log("updated eco id successfully");
+      }
+    });
+  };
   return {
     letsLogin,
     registerUser,
+    updateInfo
   };
 };
