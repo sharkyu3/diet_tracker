@@ -18,34 +18,26 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  // let getMeal = (callback, foodId) => {
-  //   let query = "SELECT meals.title, meals.photo_URL, meals.cheat, meals.creation_info FROM meals WHERE meals.id = $1";
-  //   let values = [foodId];
-  //   dbPoolInstance.query(query, values, (error, queryResult) => {
-  //     if( error ){
-  //       console.log("error: " + error);
-  //     }else{
-  //       console.log("successful meal query");
-  //       callback(queryResult.rows[0]);
-  //     }
-  //   });
-  // };
-
-  // let editMeal = (editFoodInfo, foodId) => {
-  //   let query = "UPDATE meals SET title=$1, photo_URL=$2, cheat=$3 WHERE meals.id = $4";
-  //   let arr = [editFoodInfo.title, editFoodInfo.photo_url, editFoodInfo.cheat, foodId];
-  //   dbPoolInstance.query(query, arr, (error, queryResult) => {
-  //     if( error ){
-  //       console.log("error: " + error);
-  //     }else{
-  //       console.log("edited meal successfully");
-  //     }
-  //   });
-  // };
-
+  let letsLogin = (callback, currentGroupname) => {
+    let query = "SELECT * FROM ecosystems WHERE group_name= $1";
+    let values = [currentGroupname];
+    dbPoolInstance.query(query, values, (error, queryResult) => {
+    console.log(queryResult.rows[0]);
+      if( error ){
+        console.log("error: " + error);
+      }else{
+        if(queryResult.rows.length > 0){
+            callback(queryResult.rows[0]);
+        }else{
+            callback(null);
+        }
+      }
+    });
+  };
 
   return {
     postEcosystem,
+    letsLogin
     // getMeal,
     // editMeal,
   };

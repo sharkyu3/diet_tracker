@@ -28,6 +28,8 @@ module.exports = (app, allModels) => {
   app.get('/postmeal', mealsControllerCallbacks.index);
   app.get('/postexercise', exerciseControllerCallbacks.index);
   app.get('/setupecosystem', ecosystemControllerCallbacks.index);
+ app.get('/addecosystem', ecosystemControllerCallbacks.addpage)
+ app.get('/logintoecosystem', ecosystemControllerCallbacks.signin)
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);
   app.get('/editexercisepost/:id', exerciseControllerCallbacks.select);
@@ -37,6 +39,7 @@ module.exports = (app, allModels) => {
   app.post('/postmeal/success', mealsControllerCallbacks.addmeal);
   app.post('/postexercise/success', exerciseControllerCallbacks.addexercise);
   app.post('/addecosystem', ecosystemControllerCallbacks.addecosystem)
+  app.post('/logintoecosystem', ecosystemControllerCallbacks.check)
   app.put('/editfoodpost/:id', mealsControllerCallbacks.edit);
   app.delete('/deletefoodpost/:id', mealsControllerCallbacks.delete)
   app.put('/editexercisepost/:id', exerciseControllerCallbacks.edit);
