@@ -5,11 +5,13 @@ module.exports = (db) => {
    * Controller logic
    * ===========================================
    */
+  var sha256 = require('js-sha256');
+  const SALT = "NOM NOM CHOMP CHOMP";
 
   let homepageControllerCallback = (req, res) => {
     if(req.cookies.loggedin === undefined){
         res.redirect('/');
-    }else{
+    }else if(req.cookies.loggedin === sha256(req.cookies.user_id + SALT)){
         let userId = req.cookies.user_id;
         let ecoId = req.cookies.eco;
         let data = {

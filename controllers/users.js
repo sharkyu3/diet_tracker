@@ -6,6 +6,9 @@ module.exports = (db) => {
    * ===========================================
    */
 
+  var sha256 = require('js-sha256');
+  const SALT = "NOM NOM CHOMP CHOMP";
+
   let landingControllerCallback = (req, res) => {
     res.render('landing');
   };
@@ -20,7 +23,7 @@ module.exports = (db) => {
 
   let checkPasswordControllerCallback = (req, res) => {
     let currentUsername = req.body.username;
-    let currentPw = req.body.password;
+    let currentPw = sha256(req.body.password + SALT);
     var getInfo = (userInfo) => {
         if (userInfo === null){
             //AJAX pop up no such log in or register
@@ -29,7 +32,7 @@ module.exports = (db) => {
         } else{
             if(userInfo.password === currentPw){
                 console.log("in login controller check for password");
-                res.cookie('loggedin', 'true');
+                res.cookie('loggedin', sha256(userInfo.id + SALT));
                 res.cookie('user_id', userInfo.id);
                 res.cookie('eco', userInfo.ecosystems_id);
                 res.redirect('/home');
@@ -45,12 +48,13 @@ module.exports = (db) => {
 
   let signupControllerCallback = (req, res) =>{
     let newUserInfo = req.body;
+    let username = req.body.username;
     let userId = null;
-    res.cookie('loggedin', 'true');
 
     var getId = (id) => {
         userId = id;
         res.cookie('user_id', userId);
+        res.cookie('loggedin', sha256(userId + SALT));
         res.redirect('/setupecosystem');
     }
     db.users.registerUser(getId, newUserInfo);

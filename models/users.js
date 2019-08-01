@@ -5,8 +5,8 @@
  */
 module.exports = (dbPoolInstance) => {
 
-    // var sha256 = require('js-sha256');
-    // const SALT = "NOM NOM CHOMP CHOMP";
+    var sha256 = require('js-sha256');
+    const SALT = "NOM NOM CHOMP CHOMP";
 
   let letsLogin = (callback, currentUsername) => {
     let query = "SELECT * FROM users WHERE username= $1";
@@ -28,7 +28,7 @@ module.exports = (dbPoolInstance) => {
 
   let registerUser = (callback, newUserInfo) => {
     let query = "INSERT INTO users (username, password, email, name) VALUES ($1, $2, $3, $4) RETURNING id";
-    let arr = [newUserInfo.username, newUserInfo.password, newUserInfo.email, newUserInfo.name];
+    let arr = [newUserInfo.username, sha256(newUserInfo.password + SALT), newUserInfo.email, newUserInfo.name];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);
@@ -50,9 +50,26 @@ module.exports = (dbPoolInstance) => {
       }
     });
   };
+
+  // let getUsers = (callback, username) => {
+  //   let query = "SELECT * FROM users";
+  //   dbPoolInstance.query(query, (error, queryResult) => {
+  //     if( error ){
+  //       console.log("error: " + error);
+  //     }else{
+  //       for(let i=0; i<queryResult.rows.length; i++){
+  //           if (queryResult.rows[i].username === username){
+
+  //           }
+  //       }
+  //     }
+  //   });
+  // };
+
   return {
     letsLogin,
     registerUser,
-    updateInfo
+    updateInfo,
+    // getUsers
   };
 };

@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS meals (
 	id SERIAL PRIMARY KEY,
 	title TEXT,
 	photo_URL TEXT,
-	creation_info TIMESTAMP DEFAULT now(),
+	creation_info TIMESTAMP WITHOUT TIME ZONE DEFAULT now(),
 	cheat BOOLEAN,
 	users_id INTEGER
 );
@@ -31,6 +31,23 @@ CREATE TABLE IF NOT EXISTS exercises (
 	id SERIAL PRIMARY KEY,
 	type TEXT,
 	duration INTEGER,
-	creation_info TIMESTAMP DEFAULT now(),
+	creation_info TIMESTAMP WITHOUT TIME ZONE  DEFAULT now(),
 	users_id INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS comments (
+	id SERIAL PRIMARY KEY,
+	comment TEXT,
+	creationInfo TIMESTAMP WITHOUT TIME ZONE DEFAULT now(),
+	users_id INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS exercise_comments (
+	exercise_id INTEGER,
+	comments_id INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS meals_comments (
+	meals_id INTEGER,
+	comments_id INTEGER
 );

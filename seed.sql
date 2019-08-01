@@ -42,3 +42,13 @@ INSERT INTO exercises
 (type, duration, users_id)
 VALUES
 ('Yoga', '60', '2');
+
+INSERT INTO comments
+(comment, users_id)
+VALUES
+('Looks yummy!!!', '1');
+
+INSERT INTO meals_comments
+(meals_id, comments_id)
+VALUES
+('1', '1');
