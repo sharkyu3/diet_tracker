@@ -1,17 +1,19 @@
 var React = require("react");
 
-class Homepage extends React.Component {
+class Ownpage extends React.Component {
   render() {
 
-    let userlink = "/home/" + this.props.user_id;
+    let userName = this.props.food[0].username;
+
     let mealpost = this.props.food.map ( x => {
         let title = x.title;
         let photo = x.photo_url;
         let userName = x.username;
         let cheat = x.cheat;
         let time = x.creation_info;
+        let foodURL = "/editfoodpost/"+ x.id;
 
-        return<div><h2> {userName}'s meal </h2><p>{title}</p><p> Photo: {photo} </p><p> Posted at: {time.toString()}</p></div>
+        return<div><p>{title}</p><p> Photo: {photo} </p><p> Posted at: {time.toString()}</p><a href={foodURL}>Edit post</a></div>
     })
 
     let expost = this.props.exercise.map (x => {
@@ -19,8 +21,9 @@ class Homepage extends React.Component {
         let duration = x.duration;
         let userName = x.username;
         let time = x.creation_info;
+        let exerciseURL = "/editexercisepost/" + x.id;
 
-        return<div><h2> {userName}'s workout </h2><p>{type}</p><p> {duration} mins </p><p> Posted at: {time.toString()}</p></div>
+        return<div><p>{type}</p><p> {duration} mins </p><p> Posted at: {time.toString()}</p><a href={exerciseURL}>Edit post</a></div>
     })
 
     return (
@@ -33,23 +36,16 @@ class Homepage extends React.Component {
             <body>
                 <div className = "container">
                     <div className="row">
-                        <div className="col-8">
-                            <h2>NOM CHOMP homepage</h2>
-                            <a href = "/postmeal">Post your meal</a>
-                            <a href = "/postexercise"> Post your workout</a>
-                        </div>
-                        <div className="col-4">
-                            <h2>Own dashboard</h2>
-                            <a href= {userlink}>Your info</a>
-
+                        <div className="col-10 offset 1">
+                            <h2>{userName}'s homepage</h2>
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="col-6 offset 1">
+                        <div className="col-5 offset 1">
                             {mealpost}
                         </div>
-                        <div className="col-4 offset">
+                        <div className="col-5 offset">
                             {expost}
                         </div>
 
@@ -62,4 +58,4 @@ class Homepage extends React.Component {
   }
 }
 
-module.exports = Homepage;
+module.exports = Ownpage;

@@ -14,7 +14,8 @@ module.exports = (db) => {
         let ecoId = req.cookies.eco;
         let data = {
             food: null,
-            exercise: null
+            exercise: null,
+            user_id: userId
         };
 
         var getInfo = (allFood) => {
@@ -32,6 +33,31 @@ module.exports = (db) => {
     }
   };
 
+  let ownpageControllerCallback = (req, res) => {
+    if(req.cookies.loggedin === undefined){
+        res.redirect('/');
+    }else{
+        let userId = req.params.id;
+        let data = {
+            food: null,
+            exercise: null,
+        };
+
+        var getInfo = (allFood) => {
+            data.food = allFood.reverse();
+            var getEx = (allExercises) => {
+                data.exercise = allExercises.reverse();
+                // once done, render
+                res.render('ownpage', data);
+            }
+            // once done, get exercises
+            db.info.getUserExercises(getEx, userId);
+        };
+        // get food first
+        db.info.getUserMeals(getInfo, userId);
+    }
+  };
+
   /**
    * ===========================================
    * Export controller functions as a module
@@ -39,6 +65,7 @@ module.exports = (db) => {
    */
   return {
     index: homepageControllerCallback,
+    ownpage: ownpageControllerCallback,
   };
 
 }

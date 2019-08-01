@@ -33,8 +33,36 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
+    let getUserMeals = (callback, userId) => {
+    let query = 'SELECT meals.id, meals.title, meals.photo_URL, meals.creation_info, meals.cheat, users.username FROM meals INNER JOIN users ON (meals.users_id = users.id)  WHERE users.id = $1';
+    let values = [userId];
+
+    dbPoolInstance.query(query, values, (error, queryResult) => {
+      if( error ){
+        console.log("error: " + error);
+      }else{
+        callback(queryResult.rows)
+      }
+    });
+  };
+
+  let getUserExercises = (callback, userId) => {
+    let query = 'SELECT exercises.id, exercises.type, exercises.duration, exercises.creation_info, users.username FROM exercises INNER JOIN users ON (exercises.users_id = users.id) WHERE users.id = $1';
+    let values = [userId];
+
+    dbPoolInstance.query(query, values, (error, queryResult) => {
+      if( error ){
+        console.log("error: " + error);
+      }else{
+        callback(queryResult.rows)
+      }
+    });
+  };
+
   return {
     getAllMeals,
     getAllExercises,
+    getUserMeals,
+    getUserExercises,
   };
 };
