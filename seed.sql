@@ -9,14 +9,9 @@ VALUES
 ('gina', '456', 'gina@gmail.com', 'Gina', '1');
 
 INSERT INTO ecosystems
-(group_name, group_pw, description, admin_id, plans_id)
+(group_name, group_pw, description, admin_id, weekly_exercise_sessions, weekly_cheats)
 VALUES
-('testgroup', '111', 'testing 123', '1', '1');
-
-INSERT INTO plans
-(period_in_weeks, weekly_exercise_sessions, weekly_cheats, start_date)
-VALUES
-('4', '3', '3', '2019-07-28');
+('testgroup', '111', 'testing 123', '1', '3', '3');
 
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)

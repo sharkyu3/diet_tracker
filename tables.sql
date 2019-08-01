@@ -13,15 +13,9 @@ CREATE TABLE IF NOT EXISTS ecosystems (
 	group_pw TEXT,
 	description TEXT,
 	admin_id INTEGER,
-	plans_id INTEGER
-);
-
-CREATE TABLE IF NOT EXISTS plans (
-	id SERIAL PRIMARY KEY,
-	period_in_weeks INTEGER,
+	start_date DATE DEFAULT now(),
 	weekly_exercise_sessions INTEGER,
-	weekly_cheats INTEGER,
-	start_date DATE
+	weekly_cheats INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS meals (

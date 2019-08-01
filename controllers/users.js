@@ -45,11 +45,16 @@ module.exports = (db) => {
 
   let signupControllerCallback = (req, res) =>{
     let newUserInfo = req.body;
+    let userId = null;
     res.cookie('loggedin', 'true');
-    res.redirect('/welcome');
-    db.users.registerUser(newUserInfo);
-  };
 
+    var getId = (id) => {
+        userId = id;
+        res.cookie('user_id', userId);
+        res.redirect('/setupecosystem');
+    }
+    db.users.registerUser(getId, newUserInfo);
+  };
 
   /**
    * ===========================================

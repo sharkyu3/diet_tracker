@@ -26,7 +26,7 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  let registerUser = (newUserInfo) => {
+  let registerUser = (callback, newUserInfo) => {
     let query = "INSERT INTO users (username, password, email, name) VALUES ($1, $2, $3, $4) RETURNING id";
     let arr = [newUserInfo.username, newUserInfo.password, newUserInfo.email, newUserInfo.name];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
@@ -34,6 +34,7 @@ module.exports = (dbPoolInstance) => {
         console.log("error: " + error);
       }else{
         console.log("sign up successful");
+        callback(queryResult.rows[0].id);
       }
     });
   };
