@@ -1,13 +1,12 @@
 var React = require("react");
 
-class foodpage extends React.Component {
+class exercisepage extends React.Component {
   render() {
 
-    let time = this.props.food.creation_info;
-    let foodId = this.props.foodId;
-    let cheat = this.props.food.cheat;
-    let editURL = `/editfoodpost/${foodId}/?_method=put`
-    let deleteURL = `/deletefoodpost/${foodId}/?_method=delete`
+    let time = this.props.exercise.creation_info;
+    let exerciseId = this.props.exerciseId;
+    let editURL = `/editexercisepost/${exerciseId}/?_method=put`
+    let deleteURL = `/deleteexercisepost/${exerciseId}/?_method=delete`
 
     return (
           <html>
@@ -19,19 +18,16 @@ class foodpage extends React.Component {
             <body>
                 <div className = "container">
                     <div className="row">
-                        <h2>Meal post to be edited</h2>
+                        <h2>Exercise post to be edited</h2>
                     </div>
                     <div className="row">
                             <div>
                                 <form method="POST" action= {editURL}>
                                     <p>
-                                        <input name="title" value={this.props.food.title}></input>
+                                        <input name="type" value={this.props.exercise.type}></input>
                                     </p>
                                     <p>
-                                        <input name="photo_url" value={this.props.food.photo_url}></input>
-                                    </p>
-                                    <p>
-                                        <input name="cheat" value={cheat.toString()}></input>
+                                        <input name="duration" value={this.props.exercise.duration}></input>
                                     </p>
                                     <button type="submit">Edit post</button>
                                 </form>
@@ -47,4 +43,4 @@ class foodpage extends React.Component {
   }
 }
 
-module.exports = foodpage;
+module.exports = exercisepage;

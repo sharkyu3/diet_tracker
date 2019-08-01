@@ -101,5 +101,4 @@ module.exports = {
   info: infoModelObject,
   meals: mealsModelObject,
   exercise: exerciseModelObject,
-
 };

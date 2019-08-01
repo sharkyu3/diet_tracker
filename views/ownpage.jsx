@@ -38,6 +38,8 @@ class Ownpage extends React.Component {
                     <div className="row">
                         <div className="col-10 offset 1">
                             <h2>{userName}'s homepage</h2>
+                            <a href = "/postmeal">Post your meal</a>
+                            <a href = "/postexercise"> Post your workout</a>
                         </div>
                     </div>
 

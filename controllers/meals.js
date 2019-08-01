@@ -38,6 +38,13 @@ module.exports = (db) => {
     res.redirect('/home/'+userId);
   };
 
+  let deleteMealControllerCallback = (req, res) => {
+    let foodId = req.params.id;
+    let userId = req.cookies.user_id;
+    db.meals.deleteMeal(foodId);
+    res.redirect('/home/'+userId);
+  };
+
 
   /**
    * ===========================================
@@ -49,5 +56,6 @@ module.exports = (db) => {
     addmeal: postMealControllerCallback,
     select: selectMealControllerCallback,
     edit: editMealControllerCallback,
+    delete: deleteMealControllerCallback,
   };
 }

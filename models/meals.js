@@ -42,9 +42,22 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
+  let deleteMeal = (foodId) => {
+    let query = "DELETE FROM meals WHERE meals.id=$1";
+    let arr = [foodId];
+    dbPoolInstance.query(query, arr, (error, queryResult) => {
+      if( error ){
+        console.log("error: " + error);
+      }else{
+        console.log("deleted meal successfully");
+      }
+    });
+  };
+
   return {
     postMeal,
     getMeal,
     editMeal,
+    deleteMeal
   };
 };

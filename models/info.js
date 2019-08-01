@@ -15,7 +15,13 @@ module.exports = (dbPoolInstance) => {
       if( error ){
         console.log("error: " + error);
       }else{
-        callback(queryResult.rows)
+        let data = [];
+        for(let i=0; i<queryResult.rows.length; i++){
+            if(queryResult.rows[i].title !== null){
+                data.push(queryResult.rows[i]);
+            }
+        }
+        callback(data);
       }
     });
   };
@@ -28,7 +34,13 @@ module.exports = (dbPoolInstance) => {
       if( error ){
         console.log("error: " + error);
       }else{
-        callback(queryResult.rows)
+        let data = [];
+        for(let i=0; i<queryResult.rows.length; i++){
+            if(queryResult.rows[i].title !== null){
+                data.push(queryResult.rows[i]);
+            }
+        }
+        callback(data);
       }
     });
   };
@@ -41,7 +53,13 @@ module.exports = (dbPoolInstance) => {
       if( error ){
         console.log("error: " + error);
       }else{
-        callback(queryResult.rows)
+        let data = [];
+        for(let i=0; i<queryResult.rows.length; i++){
+            if(queryResult.rows[i].title !== null){
+                data.push(queryResult.rows[i]);
+            }
+        }
+        callback(data);
       }
     });
   };
@@ -54,7 +72,13 @@ module.exports = (dbPoolInstance) => {
       if( error ){
         console.log("error: " + error);
       }else{
-        callback(queryResult.rows)
+        let data = [];
+        for(let i=0; i<queryResult.rows.length; i++){
+            if(queryResult.rows[i].title !== null){
+                data.push(queryResult.rows[i]);
+            }
+        }
+        callback(data);
       }
     });
   };

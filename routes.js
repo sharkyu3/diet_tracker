@@ -28,10 +28,15 @@ module.exports = (app, allModels) => {
   app.get('/postexercise', exerciseControllerCallbacks.index);
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);
+  app.get('/editexercisepost/:id', exerciseControllerCallbacks.select);
+
   app.post('/home', usersControllerCallbacks.check);
   app.post('/welcome', usersControllerCallbacks.signup);
   app.post('/postmeal/success', mealsControllerCallbacks.addmeal);
   app.post('/postexercise/success', exerciseControllerCallbacks.addexercise);
-  app.put('/editfoodpost/:id', mealsControllerCallbacks.edit)
+  app.put('/editfoodpost/:id', mealsControllerCallbacks.edit);
+  app.delete('/deletefoodpost/:id', mealsControllerCallbacks.delete)
+  app.put('/editexercisepost/:id', exerciseControllerCallbacks.edit);
+  app.delete('/deleteexercisepost/:id', exerciseControllerCallbacks.delete)
 
 };
