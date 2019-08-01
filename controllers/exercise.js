@@ -6,14 +6,14 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  let addMealControllerCallback = (req, res) => {
-    res.render('addmeal');
+  let addExerciseControllerCallback = (req, res) => {
+    res.render('addexercise');
   };
 
-  let postMealControllerCallback = (req, res) => {
+  let postExerciseControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
-    let newMealInfo = req.body;
-    db.meals.postMeal(newMealInfo, userId);
+    let newExerciseInfo = req.body;
+    db.exercise.postExercise(newExerciseInfo, userId);
     res.redirect('/home');
 
   };
@@ -25,7 +25,7 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    index: addMealControllerCallback,
-    addmeal: postMealControllerCallback,
+    index: addExerciseControllerCallback,
+    addexercise: postExerciseControllerCallback,
   };
 }

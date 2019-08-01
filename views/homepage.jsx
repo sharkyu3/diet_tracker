@@ -9,7 +9,7 @@ class Homepage extends React.Component {
         let cheat = x.cheat;
         let time = x.creation_info;
 
-        return<div><h2> {userName}'s meal!' </h2><p>{title}</p><p> Photo: {photo} </p><p> Posted at: {time.toString()}</p></div>
+        return<div><h2> {userName}'s meal </h2><p>{title}</p><p> Photo: {photo} </p><p> Posted at: {time.toString()}</p></div>
     })
 
     let expost = this.props.exercise.map (x => {
@@ -18,7 +18,7 @@ class Homepage extends React.Component {
         let userName = x.username;
         let time = x.creation_info;
 
-        return<div><h2> {userName}'s exercise!' </h2><p>{type}</p><p> {duration} mins </p><p> Posted at: {time.toString()}</p></div>
+        return<div><h2> {userName}'s workout </h2><p>{type}</p><p> {duration} mins </p><p> Posted at: {time.toString()}</p></div>
     })
 
     return (

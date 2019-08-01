@@ -5,19 +5,19 @@
  */
 module.exports = (dbPoolInstance) => {
 
-  let postMeal = (newMealInfo, userId) => {
-    let query = "INSERT INTO meals (title, photo_URL, cheat, users_id) VALUES ($1, $2, $3, $4)";
-    let arr = [newMealInfo.title, newMealInfo.photo_url, newMealInfo.cheat, userId];
+  let postExercise = (newExerciseInfo, userId) => {
+    let query = "INSERT INTO exercises (type, duration, users_id) VALUES ($1, $2, $3)";
+    let arr = [newExerciseInfo.type, newExerciseInfo.duration, userId];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);
       }else{
-        console.log("logged meal successfully");
+        console.log("logged exercise successfully");
       }
     });
   };
 
   return {
-    postMeal,
+    postExercise,
   };
 };
