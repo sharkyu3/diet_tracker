@@ -41,7 +41,7 @@ class Homepage extends React.Component {
                         <div className="col-4">
                             <h2>Own dashboard</h2>
                             <a href= {userlink}>Your info</a>
-
+                            <a href = '/logout'>Logout</a>
                         </div>
                     </div>
 

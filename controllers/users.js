@@ -56,6 +56,13 @@ module.exports = (db) => {
     db.users.registerUser(getId, newUserInfo);
   };
 
+  let logoutControllerCallback = (req, res) =>{
+    res.clearCookie('loggedin');
+    res.clearCookie('user_id');
+    res.clearCookie('eco');
+    res.send("logged out");
+  };
+
   /**
    * ===========================================
    * Export controller functions as a module
@@ -67,6 +74,7 @@ module.exports = (db) => {
     register: registerControllerCallback,
     check: checkPasswordControllerCallback,
     signup: signupControllerCallback,
+    logout: logoutControllerCallback
   };
 
 }

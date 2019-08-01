@@ -28,8 +28,9 @@ module.exports = (app, allModels) => {
   app.get('/postmeal', mealsControllerCallbacks.index);
   app.get('/postexercise', exerciseControllerCallbacks.index);
   app.get('/setupecosystem', ecosystemControllerCallbacks.index);
- app.get('/addecosystem', ecosystemControllerCallbacks.addpage)
- app.get('/logintoecosystem', ecosystemControllerCallbacks.signin)
+ app.get('/addecosystem', ecosystemControllerCallbacks.addpage);
+ app.get('/logintoecosystem', ecosystemControllerCallbacks.signin);
+ app.get('/logout', usersControllerCallbacks.logout);
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);
   app.get('/editexercisepost/:id', exerciseControllerCallbacks.select);
