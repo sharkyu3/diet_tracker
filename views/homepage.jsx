@@ -23,8 +23,10 @@ class Homepage extends React.Component {
         let duration = x.duration;
         let userName = x.username;
         let time = x.creation_info;
+        let publicId = x.photo_url;
+        var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
 
-        return<div><h2> {userName}'s workout </h2><p>{type}</p><p> {duration} mins </p><p> Posted at: {time.toString()}</p></div>
+        return<div><h2> {userName}'s workout </h2><p>{type}</p><p> {duration} mins </p><p> <img src = {imgUrl}></img> </p><p> Posted at: {time.toString()}</p></div>
     })
 
     return (

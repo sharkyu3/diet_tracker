@@ -1,4 +1,5 @@
 var React = require("react");
+var cloudinary = require('cloudinary');
 var Layout = require('./layouts/default');
 
 class exercisepage extends React.Component {
@@ -6,6 +7,9 @@ class exercisepage extends React.Component {
 
     let time = this.props.exercise.creation_info;
     let exerciseId = this.props.exerciseId;
+    let publicId = this.props.exercise.photo_url;
+    console.log(this.props.exercise);
+    var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
     let editURL = `/editexercisepost/${exerciseId}/?_method=put`
     let deleteURL = `/deleteexercisepost/${exerciseId}/?_method=delete`
 
@@ -23,6 +27,9 @@ class exercisepage extends React.Component {
                                 </p>
                                 <p>
                                     <input name="duration" value={this.props.exercise.duration}></input>
+                                </p>
+                                <p>
+                                    <img src = {imgUrl}></img>
                                 </p>
                                 <button type="submit">Edit post</button>
                             </form>

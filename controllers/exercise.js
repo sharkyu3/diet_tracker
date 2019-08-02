@@ -1,3 +1,11 @@
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+ cloud_name: 'dp3jrgjdx',
+ api_key: '371394598847916',
+ api_secret: 'Y09Wcgn8fJfk34K1j1QtQWSTQew'
+});
+
 module.exports = (db) => {
 
   /**
@@ -13,8 +21,11 @@ module.exports = (db) => {
   let postExerciseControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
     let newExerciseInfo = req.body;
-    db.exercise.postExercise(newExerciseInfo, userId);
-    res.redirect('/home');
+
+    cloudinary.uploader.upload(req.file.path, function(result) {
+        db.exercise.postExercise(newExerciseInfo, userId, result.public_id);
+        res.redirect('/home');
+    });
   };
 
   let selectExerciseControllerCallback = (req, res) => {

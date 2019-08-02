@@ -1,5 +1,4 @@
 const multer = require('multer');
-//const upload = multer({ dest: './uploads/' });
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -52,7 +51,7 @@ module.exports = (app, allModels) => {
   app.post('/home', usersControllerCallbacks.check);
   app.post('/welcome', usersControllerCallbacks.signup);
   app.post('/postmeal/success', upload.single('photo_url'), mealsControllerCallbacks.addmeal);
-  app.post('/postexercise/success', exerciseControllerCallbacks.addexercise);
+  app.post('/postexercise/success', upload.single('photo_url'), exerciseControllerCallbacks.addexercise);
   app.post('/addecosystem', ecosystemControllerCallbacks.addecosystem)
   app.post('/logintoecosystem', ecosystemControllerCallbacks.check)
   app.put('/editfoodpost/:id', mealsControllerCallbacks.edit);

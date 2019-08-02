@@ -4,9 +4,7 @@ var Layout = require('./layouts/default');
 
 class Ownpage extends React.Component {
   render() {
-
     let userName = this.props.food[0].username;
-
     let mealpost = this.props.food.map ( x => {
         let title = x.title;
         let publicId = x.photo_url;
@@ -24,9 +22,11 @@ class Ownpage extends React.Component {
         let duration = x.duration;
         let userName = x.username;
         let time = x.creation_info;
+        let publicId = x.photo_url;
+        var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
         let exerciseURL = "/editexercisepost/" + x.id;
 
-        return<div><p>{type}</p><p> {duration} mins </p><p> Posted at: {time.toString()}</p><a href={exerciseURL}>Edit post</a></div>
+        return<div><p>{type}</p><p> {duration} mins </p><p> <img src = {imgUrl}></img> </p><p> Posted at: {time.toString()}</p><a href={exerciseURL}>Edit post</a></div>
     })
 
     return (

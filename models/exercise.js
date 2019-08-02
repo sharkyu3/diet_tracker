@@ -5,9 +5,9 @@
  */
 module.exports = (dbPoolInstance) => {
 
-  let postExercise = (newExerciseInfo, userId) => {
-    let query = "INSERT INTO exercises (type, duration, users_id) VALUES ($1, $2, $3)";
-    let arr = [newExerciseInfo.type, newExerciseInfo.duration, userId];
+  let postExercise = (newExerciseInfo, userId, result) => {
+    let query = "INSERT INTO exercises (type, duration, users_id, photo_URL) VALUES ($1, $2, $3, $4)";
+    let arr = [newExerciseInfo.type, newExerciseInfo.duration, userId, result];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);
@@ -18,7 +18,7 @@ module.exports = (dbPoolInstance) => {
   };
 
   let getExercise = (callback, exerciseId) => {
-    let query = "SELECT exercises.type, exercises.duration, exercises.creation_info FROM exercises WHERE exercises.id = $1";
+    let query = "SELECT exercises.type, exercises.duration, exercises.creation_info, exercises.photo_url FROM exercises WHERE exercises.id = $1";
     let values = [exerciseId];
     dbPoolInstance.query(query, values, (error, queryResult) => {
       if( error ){

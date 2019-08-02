@@ -29,19 +29,19 @@ VALUES
 ('Prawn noodles', 'j7ub3lewf9zwjtxr3604', 'FALSE', '2');
 
 INSERT INTO exercises
-(type, duration, users_id)
+(type, duration, photo_URL, users_id)
 VALUES
-('Running', '20', '1');
+('Running', '20', 'gxxr4hdtthqhplt1ivrc', '1');
 
 INSERT INTO exercises
-(type, duration, users_id)
+(type, duration, photo_IRL, users_id)
 VALUES
-('Netball', '120', '2');
+('Netball', '120', 'kxrn78euow0sdfnen0oy', '2');
 
 INSERT INTO exercises
-(type, duration, users_id)
+(type, duration, photo_URL, users_id)
 VALUES
-('Yoga', '60', '2');
+('Yoga', '60', 'vivrgmb4mdrs5komck4x', '2');
 
 INSERT INTO comments
 (comment, users_id)
