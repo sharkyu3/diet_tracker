@@ -16,17 +16,17 @@ VALUES
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)
 VALUES
-('Bah Chor Mee', '', 'FALSE', '1');
+('Bah Chor Mee', 's1ciq6irw15xkp3egc8a', 'FALSE', '1');
 
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)
 VALUES
-('Ayam Penyet', '', 'FALSE', '1');
+('Ayam Penyet', 'vwiuiizuaymsnktjsd4t', 'FALSE', '1');
 
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)
 VALUES
-('Prawn noodles', '', 'FALSE', '2');
+('Prawn noodles', 'j7ub3lewf9zwjtxr3604', 'FALSE', '2');
 
 INSERT INTO exercises
 (type, duration, users_id)
