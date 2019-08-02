@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS exercises (
 	id SERIAL PRIMARY KEY,
 	type TEXT,
 	duration INTEGER,
+	photo_URL TEXT,
 	creation_info TIMESTAMP WITHOUT TIME ZONE  DEFAULT now(),
 	users_id INTEGER
 );

@@ -6,6 +6,9 @@ module.exports = (db) => {
    * ===========================================
    */
 
+  var sha256 = require('js-sha256');
+  const SALT = "NOM NOM CHOMP CHOMP";
+
   let addEcosystemControllerCallback = (req, res) => {
     res.render('ecosystembase');
   };
@@ -33,10 +36,7 @@ module.exports = (db) => {
 
 let checkPasswordControllerCallback = (req, res) => {
     let currentGroupname = req.body.group_name;
-    let currentPw = req.body.group_pw;
-
-    console.log("inside group controller");
-    console.log(req.body);
+    let currentPw = sha256(req.body.group_pw + SALT);
 
     var getInfo = (groupInfo) => {
         if (groupInfo === null){

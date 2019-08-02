@@ -5,9 +5,12 @@
  */
 module.exports = (dbPoolInstance) => {
 
+    var sha256 = require('js-sha256');
+    const SALT = "NOM NOM CHOMP CHOMP";
+
   let postEcosystem = (callback, newEcoInfo, userId) => {
     let query = "INSERT INTO ecosystems (group_name, group_pw, description, admin_id, weekly_exercise_sessions, weekly_cheats) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id";
-    let arr = [newEcoInfo.group_name, newEcoInfo.group_pw, newEcoInfo.description, userId, newEcoInfo.weekly_exercise_sessions, newEcoInfo.weekly_cheats];
+    let arr = [newEcoInfo.group_name, sha256(newEcoInfo.group_pw + SALT), newEcoInfo.description, userId, newEcoInfo.weekly_exercise_sessions, newEcoInfo.weekly_cheats];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);
@@ -38,7 +41,5 @@ module.exports = (dbPoolInstance) => {
   return {
     postEcosystem,
     letsLogin
-    // getMeal,
-    // editMeal,
   };
 };

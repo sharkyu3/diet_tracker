@@ -64,7 +64,7 @@ module.exports = (db) => {
     res.clearCookie('loggedin');
     res.clearCookie('user_id');
     res.clearCookie('eco');
-    res.send("logged out");
+    res.redirect('/');
   };
 
   /**

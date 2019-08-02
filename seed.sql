@@ -11,7 +11,7 @@ VALUES
 INSERT INTO ecosystems
 (group_name, group_pw, description, admin_id, weekly_exercise_sessions, weekly_cheats)
 VALUES
-('testgroup', '111', 'testing 123', '1', '3', '3');
+('testgroup', '60f60c8536dafb4f4173bcc66a72a8fdb3aefba98e9fd8c2745a8c7cffce5bc1', 'testing 123', '1', '3', '3');
 
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)

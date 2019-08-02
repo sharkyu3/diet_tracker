@@ -1,20 +1,18 @@
 var React = require("react");
+var Layout = require('./layouts/default');
 
 class addmealform extends React.Component {
   render() {
     return (
-      <html>
-        <head />
-        <body>
+        <Layout>
           <h2>What did you CHOMP on?</h2>
-          <form method="POST" action="/postmeal/success">
+          <form encType="multipart/form-data" method="POST" action="/postmeal/success">
             <div><input name="title" placeholder="title"></input></div>
-            <div><input name="photo_url" placeholder="Photo URL"></input></div>
+            <div><input type = "file" name="photo_url" placeholder="Photo URL"></input></div>
             <div><input name="cheat" placeholder="Cheat"></input></div>
             <div><button type="submit">Add Meal</button></div>
           </form>
-        </body>
-      </html>
+        </Layout>
     );
   }
 }

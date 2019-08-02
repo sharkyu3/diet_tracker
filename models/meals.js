@@ -5,9 +5,9 @@
  */
 module.exports = (dbPoolInstance) => {
 
-  let postMeal = (newMealInfo, userId) => {
+  let postMeal = (newMealInfo, userId, result) => {
     let query = "INSERT INTO meals (title, photo_URL, cheat, users_id) VALUES ($1, $2, $3, $4)";
-    let arr = [newMealInfo.title, newMealInfo.photo_url, newMealInfo.cheat, userId];
+    let arr = [newMealInfo.title, result, newMealInfo.cheat, userId];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);

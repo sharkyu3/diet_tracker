@@ -1,3 +1,11 @@
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+ cloud_name: 'dp3jrgjdx',
+ api_key: '371394598847916',
+ api_secret: 'Y09Wcgn8fJfk34K1j1QtQWSTQew'
+});
+
 module.exports = (db) => {
 
   /**
@@ -13,8 +21,10 @@ module.exports = (db) => {
   let postMealControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
     let newMealInfo = req.body;
-    db.meals.postMeal(newMealInfo, userId);
+    cloudinary.uploader.upload(req.file.path, function(result) {
+    db.meals.postMeal(newMealInfo, userId, result.public_id);
     res.redirect('/home');
+  });
   };
 
   let selectMealControllerCallback = (req, res) => {
