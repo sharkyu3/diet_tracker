@@ -26,6 +26,11 @@ VALUES
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)
 VALUES
+('Spaghetti', 'apye4wh3sqjdka7jlgih', 'FALSE', '2');
+
+INSERT INTO meals
+(title, photo_URL, cheat, users_id)
+VALUES
 ('Prawn noodles', 'j7ub3lewf9zwjtxr3604', 'FALSE', '2');
 
 INSERT INTO exercises

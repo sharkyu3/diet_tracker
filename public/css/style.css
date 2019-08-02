@@ -1,0 +1,32 @@
+/*.container{
+	width: 100%;
+}*/
+
+#fulllogo{
+	margin: 25px auto 30px;
+}
+
+#login{
+	font-family: 'Permanent Marker', cursive;
+	font-size: 30px;
+	color: black;
+}
+
+#register {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 18px;
+	margin: 10px auto;
+	color: #80847e;
+}
+
+#login-holder {
+	background-color: #8bcf67d9;
+	text-align: center;
+	height: 100%;
+	width: 111%;
+	border-radius: 15px;
+}
+
+#register-holder{
+	text-align: center;
+}
