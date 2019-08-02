@@ -8,7 +8,7 @@ module.exports = (dbPoolInstance) => {
   // `dbPoolInstance` is accessible within this function scope
 
   let getAllMeals = (callback, ecoId) => {
-    let query = 'SELECT meals.title, meals.photo_URL, meals.creation_info, meals.cheat, users.username FROM meals INNER JOIN users ON (meals.users_id = users.id) INNER JOIN ecosystems ON (ecosystems.id = users.ecosystems_id) WHERE ecosystems.id = $1';
+    let query = 'SELECT meals.title, meals.photo_URL, meals.creation_info, meals.cheat, users.username, ecosystems.group_name, ecosystems.description FROM meals INNER JOIN users ON (meals.users_id = users.id) INNER JOIN ecosystems ON (ecosystems.id = users.ecosystems_id) WHERE ecosystems.id = $1';
     let values = [ecoId];
 
     dbPoolInstance.query(query, values, (error, queryResult) => {

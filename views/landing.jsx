@@ -13,7 +13,7 @@ class Landing extends React.Component {
         <body>
             <div className="container-fluid">
                 <div className = "row">
-                    <img className="img-fluid" src= "/pics/guildslogo.png" id="fulllogo" alt="GUIL:DR logo" height="500"></img>
+                    <img className="img-fluid" src= "/pics/guildslogo.png" id="fulllogo" alt="GUIL:DR logo"></img>
                 </div>
                 <div className = "row">
                     <div className = "col-6 offset-3" id="login-holder">
