@@ -14,9 +14,9 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  let addExerciseControllerCallback = (req, res) => {
-    res.render('addexercise');
-  };
+  // let addExerciseControllerCallback = (req, res) => {
+  //   res.render('addexercise');
+  // };
 
   let postExerciseControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
@@ -63,7 +63,7 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    index: addExerciseControllerCallback,
+    // index: addExerciseControllerCallback,
     addexercise: postExerciseControllerCallback,
     select: selectExerciseControllerCallback,
     edit: editExerciseControllerCallback,

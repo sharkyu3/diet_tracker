@@ -16,7 +16,7 @@ class ecoLanding extends React.Component {
             <div className="container-fluid">
                 <div className="row-fluid">
                     <div className="col-6 offset-3">
-                        <img className="img-fluid" src= "/pics/guildslogo.png" id="reglogo"></img>
+                        <img className="img-fluid" src= "/pics/applestack.png" id="stacklogo"></img>
                     </div>
                 </div>
                 <div className="row-fluid" id="ecobutton-holder">

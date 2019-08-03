@@ -38,8 +38,8 @@ module.exports = (app, allModels) => {
   // app.get('/login', usersControllerCallbacks.setlogin);
   app.get('/register', usersControllerCallbacks.register);
   app.get('/home', infoControllerCallbacks.index);
-  app.get('/postmeal', mealsControllerCallbacks.index);
-  app.get('/postexercise', exerciseControllerCallbacks.index);
+  // app.get('/postmeal', mealsControllerCallbacks.index);
+  // app.get('/postexercise', exerciseControllerCallbacks.index);
   app.get('/setupecosystem', ecosystemControllerCallbacks.index);
   app.get('/addecosystem', ecosystemControllerCallbacks.addpage);
   // app.get('/logintoecosystem', ecosystemControllerCallbacks.signin);

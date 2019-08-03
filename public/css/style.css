@@ -133,3 +133,25 @@ h2{
 	text-decoration: none;
 	font-family: 'Kalam', cursive;
 }
+
+#stacklogo{
+	display:block;
+	margin-right:auto;
+	margin-left: auto;
+	margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+p{
+	text-align: center;
+}
+
+.post{
+	display:inline-block;
+	margin: 15px;
+  width: 160px;
+}
+
+#homebuttonholder{
+	text-align: center;
+}

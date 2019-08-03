@@ -14,9 +14,9 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  let addMealControllerCallback = (req, res) => {
-    res.render('addmeal');
-  };
+  // let addMealControllerCallback = (req, res) => {
+  //   res.render('addmeal');
+  // };
 
   let postMealControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
@@ -62,7 +62,7 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    index: addMealControllerCallback,
+    // index: addMealControllerCallback,
     addmeal: postMealControllerCallback,
     select: selectMealControllerCallback,
     edit: editMealControllerCallback,
