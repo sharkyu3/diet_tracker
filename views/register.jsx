@@ -17,31 +17,38 @@ class register extends React.Component {
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-6 offset-3">
+                    <div className="col-6 offset-3" id="toprow">
                         <h2>Create GUIL:DS account</h2>
+                    </div>
+                </div>
+                <div className="row-fluid">
+                    <div className="col-4 offset-4">
+                        <form method="POST" action="/welcome">
+                            <div className="spacing">
+                                <label for="name" className="label">Name</label>
+                                <input name="name" className="registerinput"></input>
+                            </div>
+                            <div className="spacing">
+                                <label for="username" className="label">Username</label>
+                                <input name="username" className="registerinput"></input>
+                            </div>
+                            <div className="spacing">
+                                <label for="password" className="label">Password</label>
+                                <input name="password" className="registerinput"></input>
+                            </div>
+                            <div className="spacing">
+                                <label for="email" className="label">Email</label>
+                                <input name="email" className="registerinput"></input>
+                            </div>
+                            <div className="spacing">
+                                <button type="submit" id="regsubmit">Sign up</button>
+                            </div>
+                          </form>
                     </div>
                 </div>
             </div>
 
-          <form method="POST" action="/welcome">
-            <div>
-                <label for="name" class="label">Name</label>
-                <input name="name"></input>
-            </div>
-            <div>
-                <label for="username" class="label">Username</label>
-                <input name="username"></input>
-            </div>
-            <div>
-                <label for="password" class="label">Password</label>
-                <input name="password"></input>
-            </div>
-            <div>
-                <label for="email" class="label">Email</label>
-                <input name="email"></input>
-            </div>
-            <div><button type="submit">Sign up</button></div>
-          </form>
+
         </body>
       </html>
     );

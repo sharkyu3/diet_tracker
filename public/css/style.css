@@ -11,6 +11,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 #login{
@@ -86,4 +87,27 @@ form {
 
 h2{
 	font-family: 'Kalam', cursive;
+}
+
+.registerinput{
+	position: absolute;
+	right: 0px;
+}
+
+.spacing{
+	margin: 5px;
+}
+
+#regsubmit{
+	display: block;
+	margin: 25px auto;
+	width: 150px;
+	border-radius: 10px;
+	background-color: #fe755c;
+	border: none;
+}
+
+#toprow {
+	border-top: 2px solid grey;
+	padding-top: 20px;
 }
