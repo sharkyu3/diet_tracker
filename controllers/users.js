@@ -13,9 +13,9 @@ module.exports = (db) => {
     res.render('landing');
   };
 
-  let loginControllerCallback = (req, res) => {
-    res.render('login');
-  }
+  // let loginControllerCallback = (req, res) => {
+  //   res.render('login');
+  // }
 
   let registerControllerCallback = (req, res) => {
     res.render('register');
@@ -28,7 +28,7 @@ module.exports = (db) => {
         if (userInfo === null){
             //AJAX pop up no such log in or register
             console.log("in login controller no result returned");
-            res.redirect('/login');
+            res.redirect('/');
         } else{
             if(userInfo.password === currentPw){
                 console.log("in login controller check for password");
@@ -38,7 +38,7 @@ module.exports = (db) => {
                 res.redirect('/home');
             }else{
                 //AJAX pop up wrong password
-                res.redirect('login');
+                res.redirect('/');
                 console.log("in login controller wrong password");
             }
         }
@@ -74,7 +74,7 @@ module.exports = (db) => {
    */
   return {
     index: landingControllerCallback,
-    setlogin: loginControllerCallback,
+    // setlogin: loginControllerCallback,
     register: registerControllerCallback,
     check: checkPasswordControllerCallback,
     signup: signupControllerCallback,

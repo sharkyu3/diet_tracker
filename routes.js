@@ -35,7 +35,7 @@ module.exports = (app, allModels) => {
 
 
   app.get('/', usersControllerCallbacks.index);
-  app.get('/login', usersControllerCallbacks.setlogin);
+  // app.get('/login', usersControllerCallbacks.setlogin);
   app.get('/register', usersControllerCallbacks.register);
   app.get('/home', infoControllerCallbacks.index);
   app.get('/postmeal', mealsControllerCallbacks.index);

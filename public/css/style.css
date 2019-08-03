@@ -1,18 +1,37 @@
 #fulllogo{
-	margin: 25px auto 30px;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom:20px;
+}
+
+#reglogo{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }
 
 #login{
-	font-family: 'Permanent Marker', cursive;
-	font-size: 30px;
+	font-family: 'Kalam', cursive;
+	font-size: 150%;
 	color: black;
+	background-color: #8bcf67d9;
+	text-align: center;
+	height: 100%;
+	width: 111%;
+	border-radius: 15px;
+	border: none;
+	font-weight: bolder;
 }
 
 #register {
-	font-family: 'Permanent Marker', cursive;
-	font-size: 18px;
+	font-family: 'Kalam', cursive;
+	font-size: 15px;
 	margin: 10px auto;
 	color: #80847e;
+	text-align: center;
 }
 
 #login-holder {
@@ -29,4 +48,42 @@
 
 .card{
 	width: 350px;
+}
+
+.modal-title{
+	font-family: 'Kalam', cursive;
+	position: absolute;
+  font-size: 20px;
+}
+
+.button-close{
+	position: absolute;
+  right: 25px;
+}
+
+form {
+	font-family: 'Kalam', cursive;
+}
+
+#usernamelabel{
+	margin-right: 15px;
+	font-size: 15px
+}
+
+#passwordlabel{
+	margin-right: 15px;
+	font-size: 15px
+}
+
+.modal-header {
+	background-color: #fe755c;
+}
+
+.modal-dialog{
+	top: 30%;
+  left: 20%;
+}
+
+h2{
+	font-family: 'Kalam', cursive;
 }
