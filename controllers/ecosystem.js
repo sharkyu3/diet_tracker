@@ -30,9 +30,9 @@ module.exports = (db) => {
     db.ecosystem.postEcosystem(getEcoId, newEcoInfo, userId);
   };
 
-  let signinEcosystemControllerCallback = (req, res) => {
-    res.render('ecologin');
-  }
+  // let signinEcosystemControllerCallback = (req, res) => {
+  //   res.render('ecologin');
+  // }
 
 let checkPasswordControllerCallback = (req, res) => {
     let currentGroupname = req.body.group_name;
@@ -70,7 +70,7 @@ let checkPasswordControllerCallback = (req, res) => {
     index: addEcosystemControllerCallback,
     addpage: addformControllerCallback,
     addecosystem: postEcosystemControllerCallback,
-    signin: signinEcosystemControllerCallback,
+    // signin: signinEcosystemControllerCallback,
     check: checkPasswordControllerCallback
   };
 }

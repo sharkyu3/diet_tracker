@@ -20,24 +20,23 @@ class Landing extends React.Component {
                 </div>
                 <div className = "row-fluid">
                     <div className = "col-4 offset-4">
-                            <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Log In</button>
+                      <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Log In</button>
+                      <div className="modal fade" id="myModal" role="dialog">
+                        <div className="modal-dialog">
 
-                      <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-
-                          <div class="modal-content">
-                            <div class="modal-header">
+                          <div className="modal-content">
+                            <div className="modal-header">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title">Log in to GUIL:DS</h4>
+                              <h4 className="modal-title">Log in to GUIL:DS</h4>
                             </div>
-                            <div class="modal-body">
-                                <form className="form-horizontal" method="POST" action="/home" onSubmit="return validateForm()">
+                            <div className="modal-body">
+                                <form className="form-horizontal" method="POST" action="/home">
                                 <div className="form-group">
-                                    <label for="Username" class="col-sm-2 control-label" id="usernamelabel">Username</label>
+                                    <label for="Username" className="col-sm-2 control-label" id="usernamelabel">Username</label>
                                     <input type="Username" name="username"></input>
                                 </div>
                                 <div className="form-group">
-                                    <label for="Password" class="col-sm-2 control-label" id="passwordlabel">Password</label>
+                                    <label for="Password" className="col-sm-2 control-label" id="passwordlabel">Password</label>
                                     <input type="Password" name="password"></input>
                                 </div>
                                 <div >
@@ -45,15 +44,15 @@ class Landing extends React.Component {
                                 </div>
                               </form>
                             </div>
-                            <div class="modal-footer">
+                            <div className="modal-footer">
                               <a href="/register" id="register">Not a user yet? Register here</a>
                             </div>
                           </div>
 
                         </div>
                       </div>
-                </div>
                     </div>
+                </div>
 
                 <div className = "row-fluid">
                     <div className = "col-4 offset-4" id="register-holder">

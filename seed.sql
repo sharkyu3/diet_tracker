@@ -8,6 +8,11 @@ INSERT INTO users
 VALUES
 ('gina', '456', 'gina@gmail.com', 'Gina', '1');
 
+INSERT INTO users
+(username, password, email, name, ecosystems_id)
+VALUES
+('tammy', '58133469835c31438a701820dbf04a7079254b0b6231cecde90acb2b9d0e7abc', 'tammy@gmail.com', 'tammy', '1');
+
 INSERT INTO ecosystems
 (group_name, group_pw, description, admin_id, weekly_exercise_sessions, weekly_cheats)
 VALUES
@@ -26,6 +31,11 @@ VALUES
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)
 VALUES
+('Seafood Pasta', 'l6kojhy4am2yj9bssyb4', 'FALSE', '1');
+
+INSERT INTO meals
+(title, photo_URL, cheat, users_id)
+VALUES
 ('Spaghetti', 'apye4wh3sqjdka7jlgih', 'FALSE', '2');
 
 INSERT INTO meals
@@ -39,7 +49,7 @@ VALUES
 ('Running', '20', 'gxxr4hdtthqhplt1ivrc', '1');
 
 INSERT INTO exercises
-(type, duration, photo_IRL, users_id)
+(type, duration, photo_URL, users_id)
 VALUES
 ('Netball', '120', 'kxrn78euow0sdfnen0oy', '2');
 

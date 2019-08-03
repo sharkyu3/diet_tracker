@@ -42,7 +42,7 @@ module.exports = (app, allModels) => {
   app.get('/postexercise', exerciseControllerCallbacks.index);
   app.get('/setupecosystem', ecosystemControllerCallbacks.index);
   app.get('/addecosystem', ecosystemControllerCallbacks.addpage);
-  app.get('/logintoecosystem', ecosystemControllerCallbacks.signin);
+  // app.get('/logintoecosystem', ecosystemControllerCallbacks.signin);
   app.get('/logout', usersControllerCallbacks.logout);
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);

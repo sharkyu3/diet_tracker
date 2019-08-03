@@ -12,14 +12,14 @@ class DefaultLayout extends React.Component {
                 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
             </head>
             <body>
-                <nav class="navbar navbar-default">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" href="/home">
+                <nav className="navbar navbar-default">
+                  <div className="container-fluid">
+                    <div className="navbar-header">
+                      <a className="navbar-brand" href="/home">
                         <img alt="Brand" src="/pics/guildsapple.png" height='80'/>
                       </a>
                     </div>
-                    <ul class="nav nav-pills">
+                    <ul className="nav nav-pills">
                       <li role="presentation"><a href="/logout">Logout</a></li>
                     </ul>
                   </div>
