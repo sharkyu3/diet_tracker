@@ -55,8 +55,8 @@ class Homepage extends React.Component {
                 <div className="row-fluid">
                     <a href={userlink}>Your posts</a>
                     <div className="col-xs-8 offset-2" id="homebuttonholder">
-                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal">Log a meal</button>
-                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal">Log a workout</button>
+                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal" id="logbuttons">Log a meal</button>
+                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal" id="logbuttons">Log a workout</button>
 
                         <div className="modal fade" id="mealModal" role="dialog">
                             <div className="modal-dialog">
@@ -69,18 +69,22 @@ class Homepage extends React.Component {
                                     <div className="modal-body">
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postmeal/success">
                                             <div className="form-group">
-                                                <label for="title" className="col-xs-2 control-label">What did you have?</label>
-                                                <input name="title"></input>
+                                                <label for="title" className="col-xs-4 control-label">What did you have?</label>
+                                                <input name="title" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="file" className="col-xs-2 control-label">Photo</label>
-                                                <input type = "file" name="photo_url"></input>
+                                                <label for="file" className="col-xs-4 control-label">Photo</label>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="cheat" className="col-xs-2 control-label">Is this a cheat meal?</label>
-                                                <input name="cheat"></input>
+                                                <label for="cheat" className="col-xs-4 control-label">Is this a cheat meal?</label>
+                                                <select name="cheat"className="col-xs-6 offset-1">
+                                                    <option value="false">NOPE!</option>
+                                                    <option value="true">yes...</option>
+                                                </select>
                                             </div>
-                                             <div >
+
+                                             <div>
                                                 <button type="submit">Log meal</button>
                                             </div>
                                         </form>
@@ -100,16 +104,16 @@ class Homepage extends React.Component {
                                     <div className="modal-body">
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postexercise/success">
                                             <div className="form-group">
-                                                <label for="type" className="col-xs-6 control-label">What workout did you do?</label>
-                                                <input name="type"></input>
+                                                <label for="type" className="col-xs-4 control-label">What workout did you do?</label>
+                                                <input name="type" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="file" className="col-xs-6 control-label">Photo</label>
-                                                <input type = "file" name="photo_url"></input>
+                                                <label for="file" className="col-xs-4 control-label">Photo</label>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="duration" className="col-xs-6 control-label">How long was your workout (in mins)?</label>
-                                                <input name="duration"></input>
+                                                <label for="duration" className="col-xs-4 control-label">How long was your workout (in mins)?</label>
+                                                <input name="duration" className="col-xs-6 offset-1"></input>
                                             </div>
                                              <div >
                                                 <button type="submit">Log workout</button>

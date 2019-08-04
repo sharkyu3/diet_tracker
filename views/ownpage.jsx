@@ -31,18 +31,25 @@ class Ownpage extends React.Component {
 
     let foodthumbnail = this.props.food.map (x => {
         let publicId = x.photo_url;
+        let title = x.title;
+        let time = x.creation_info;
         let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
         let foodURL = "/editfoodpost/"+ x.id;
 
-        return<div className="col-xs-3" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a></div>
+        return(
+            <div className="col-xs-4" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img><h4>{title}</h4><p>{time.toString()}</p></a></div>)
     })
 
     let exthumbnail = this.props.exercise.map (x => {
         let publicId = x.photo_url;
         let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
         let exURL = "/editexercisepost/"+ x.id;
+        let type = x.type;
+        let duration = x.duration;
+        let time = x.creation_info;
 
-        return<div className="col-xs-3" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img></a></div>
+        return(
+            <div className="col-xs-4" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img><h4>{type}</h4><h5>{duration} mins</h5><p>{time.toString()}</p></a></div>)
     })
 
     return (
@@ -52,8 +59,8 @@ class Ownpage extends React.Component {
                         <div className="col-xs-10 offset-1">
                             <h2>{userName}'s homepage</h2>
                             <div className="col-xs-8 offset-2" id="homebuttonholder">
-                                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal">Log a meal</button>
-                                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal">Log a workout</button>
+                                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal" id="logbuttons">Log a meal</button>
+                                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal" id="logbuttons">Log a workout</button>
 
                          <div className="modal fade" id="mealModal" role="dialog">
                             <div className="modal-dialog">
@@ -66,16 +73,16 @@ class Ownpage extends React.Component {
                                     <div className="modal-body">
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postmeal/success">
                                             <div className="form-group">
-                                                <label for="title" className="col-xs-6 control-label">What did you have?</label>
-                                                <input name="title"></input>
+                                                <label for="title" className="col-xs-4 control-label">What did you have?</label>
+                                                <input name="title" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="file" className="col-xs-6 control-label">Photo</label>
-                                                <input type = "file" name="photo_url"></input>
+                                                <label for="file" className="col-xs-4 control-label">Photo</label>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="cheat" className="col-xs-6 control-label">Is this a cheat meal?</label>
-                                                <input name="cheat"></input>
+                                                <label for="cheat" className="col-xs-4 control-label" >Is this a cheat meal?</label>
+                                                <input name="cheat" className="col-xs-6 offset-1"></input>
                                             </div>
                                              <div >
                                                 <button type="submit">Log meal</button>
@@ -97,16 +104,16 @@ class Ownpage extends React.Component {
                                     <div className="modal-body">
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postexercise/success">
                                             <div className="form-group">
-                                                <label for="type" className="col-xs-6 control-label">What workout did you do?</label>
-                                                <input name="type"></input>
+                                                <label for="type" className="col-xs-4 control-label">What workout did you do?</label>
+                                                <input name="type" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="file" className="col-xs-6 control-label">Photo</label>
-                                                <input type = "file" name="photo_url"></input>
+                                                <label for="file" className="col-xs-4 control-label">Photo</label>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="duration" className="col-xs-6 control-label">How long was your workout (in mins)?</label>
-                                                <input name="duration"></input>
+                                                <label for="duration" className="col-xs-4 control-label">How long was your workout (in mins)?</label>
+                                                <input name="duration" className="col-xs-6 offset-1"></input>
                                             </div>
                                              <div >
                                                 <button type="submit">Log workout</button>

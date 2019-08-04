@@ -75,16 +75,6 @@ form {
 	font-family: 'Kalam', cursive;
 }
 
-#usernamelabel{
-	margin-right: 15px;
-	font-size: 15px
-}
-
-#passwordlabel{
-	margin-right: 15px;
-	font-size: 15px
-}
-
 .modal-header {
 	background-color: #fe755c;
 }
@@ -216,6 +206,24 @@ li a{
 	color: #f74a2b;
 	text-decoration: underline;
 	font-family: 'Kalam', cursive;
-	font-size: 30px;
+	font-size: 120%;
 	font-weight: bolder;
+}
+
+#thumbs{
+	padding: 5px;
+	text-align:center;
+}
+
+#thumbs a{
+	margin-bottom: 0px;
+}
+
+#thumbs img{
+	margin: 0px auto;
+}
+
+#logbuttons{
+	background-color: #fe755cde;
+	border: none;
 }
