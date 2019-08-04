@@ -127,14 +127,14 @@ class Homepage extends React.Component {
                 </div>
 
                 <div className="row-fluid">
-                    <div className="col-xs-8 offset-2" id="ecoholder">
+                    <div className="col-xs" id="ecoholder">
                         <h2>{ecoName}</h2>
                         <h4>{ecoDescription}</h4>
                     </div>
                 </div>
 
                 <div className = "row-fluid">
-                    <div className="col-xs-8 offset-2" id="cardholder">
+                    <div className="col-xs" id="cardholder">
                         <div className="row-fluid" id="showbuttons">
                             <button data-toggle="collapse" data-target="#mealslist" className="showme" id="showoff">Show meals</button>
                             <button data-toggle="collapse" data-target="#exerciselist" className="showme" id="showoff">Show workouts</button>

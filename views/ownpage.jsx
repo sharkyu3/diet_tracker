@@ -37,7 +37,7 @@ class Ownpage extends React.Component {
         let foodURL = "/editfoodpost/"+ x.id;
 
         return(
-            <div className="col-xs-4" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img><h4>{title}</h4><p>{time.toString()}</p></a></div>)
+            <div className="col-xs-4" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a></div>)
     })
 
     let exthumbnail = this.props.exercise.map (x => {
@@ -49,14 +49,14 @@ class Ownpage extends React.Component {
         let time = x.creation_info;
 
         return(
-            <div className="col-xs-4" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img><h4>{type}</h4><h5>{duration} mins</h5><p>{time.toString()}</p></a></div>)
+            <div className="col-xs-4" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img></a></div>)
     })
 
     return (
           <Layout>
                 <div className = "container-fluid" id="maincontainer">
                     <div className="row-fluid">
-                        <div className="col-xs-10 offset-1">
+                        <div className="col-xs-12">
                             <h2>{userName}'s homepage</h2>
                             <div className="col-xs-8 offset-2" id="homebuttonholder">
                                 <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal" id="logbuttons">Log a meal</button>
