@@ -157,6 +157,7 @@ p{
 
 #ecoholder{
 	text-align:center;
+	border-top: 3px solid grey;
 }
 
 #showbuttons{
@@ -226,4 +227,18 @@ li a{
 #logbuttons{
 	background-color: #fe755cde;
 	border: none;
+	font-family: 'Kalam', cursive;
+	font-size: 140%;
+}
+
+#showoff{
+	border-radius: 10px;
+	background-color: #8ace66c2;
+	border: none;
+	font-family: 'Kalam', cursive;
+	font-size: 120%;
+}
+
+h4{
+	font-family: 'Kalam', cursive;
 }

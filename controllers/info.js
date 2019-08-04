@@ -51,8 +51,6 @@ module.exports = (db) => {
                 data.exercise = allExercises.reverse();
                 // once done, render
                 res.render('ownpage', data);
-                console.log("controller for info");
-                console.log(data);
             }
             // once done, get exercises
             db.info.getUserExercises(getEx, userId);
