@@ -8,7 +8,7 @@ class Ownpage extends React.Component {
     let mealpost = this.props.food.map ( x => {
         let title = x.title;
         let publicId = x.photo_url;
-        var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
         let userName = x.username;
         let cheat = x.cheat;
         let time = x.creation_info;
@@ -23,10 +23,26 @@ class Ownpage extends React.Component {
         let userName = x.username;
         let time = x.creation_info;
         let publicId = x.photo_url;
-        var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
         let exerciseURL = "/editexercisepost/" + x.id;
 
         return<div><p>{type}</p><p> {duration} mins </p><p> <img src = {imgUrl}></img> </p><p> Posted at: {time.toString()}</p><a href={exerciseURL}>Edit post</a></div>
+    })
+
+    let foodthumbnail = this.props.food.map (x => {
+        let publicId = x.photo_url;
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
+        let foodURL = "/editfoodpost/"+ x.id;
+
+        return<div className="col-xs-3" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a></div>
+    })
+
+    let exthumbnail = this.props.exercise.map (x => {
+        let publicId = x.photo_url;
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
+        let exURL = "/editexercisepost/"+ x.id;
+
+        return<div className="col-xs-3" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img></a></div>
     })
 
     return (
@@ -105,11 +121,24 @@ class Ownpage extends React.Component {
             </div>
 
                     <div className="row-fluid">
-                        <div className="col-xs-4 offset-1">
-                            {mealpost}
+                        <div className="col-xs-10 offset-1" id="thumbnailholder">
+                            <div className="row-fluid">
+                                <h3 className="logheader">Meal log</h3>
+                            </div>
+                            <div className="row-fluid">
+                                {foodthumbnail}
+                            </div>
                         </div>
-                        <div className="col-xs-4 offset-2">
-                            {expost}
+                    </div>
+
+                    <div className="row-fluid">
+                        <div className="col-xs-10 offset-1" id="thumbnailholder">
+                            <div className="row-fluid">
+                                <h3 className="logheader">Workout log</h3>
+                            </div>
+                            <div className="row-fluid">
+                                {exthumbnail}
+                            </div>
                         </div>
                     </div>
 

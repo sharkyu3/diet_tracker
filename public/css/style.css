@@ -204,3 +204,18 @@ li a{
 	position: absolute;
 	right: 5px;
 }
+
+#thumbnailholder{
+	border: 2px solid #fe755c9e;
+	margin-bottom: 15px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.logheader{
+	color: #f74a2b;
+	text-decoration: underline;
+	font-family: 'Kalam', cursive;
+	font-size: 30px;
+	font-weight: bolder;
+}
