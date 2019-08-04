@@ -19,7 +19,7 @@ class Landing extends React.Component {
                         <img className="img-fluid" src= "/pics/guildslogo.png" id="fulllogo"></img>
                 </div>
                 <div className = "row-fluid">
-                    <div className = "col-4 offset-4">
+                    <div className = "col-xs-4 offset-4">
                       <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Log In</button>
                       <div className="modal fade" id="myModal" role="dialog">
                         <div className="modal-dialog">
@@ -55,7 +55,7 @@ class Landing extends React.Component {
                 </div>
 
                 <div className = "row-fluid">
-                    <div className = "col-4 offset-4" id="register-holder">
+                    <div className = "col-xs-4 offset-4" id="register-holder">
                             <a href="/register" id="register">Not a user yet? Register here</a>
                     </div>
                 </div>

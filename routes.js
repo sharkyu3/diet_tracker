@@ -35,14 +35,10 @@ module.exports = (app, allModels) => {
 
 
   app.get('/', usersControllerCallbacks.index);
-  // app.get('/login', usersControllerCallbacks.setlogin);
   app.get('/register', usersControllerCallbacks.register);
   app.get('/home', infoControllerCallbacks.index);
-  // app.get('/postmeal', mealsControllerCallbacks.index);
-  // app.get('/postexercise', exerciseControllerCallbacks.index);
   app.get('/setupecosystem', ecosystemControllerCallbacks.index);
   app.get('/addecosystem', ecosystemControllerCallbacks.addpage);
-  // app.get('/logintoecosystem', ecosystemControllerCallbacks.signin);
   app.get('/logout', usersControllerCallbacks.logout);
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);

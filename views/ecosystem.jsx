@@ -12,17 +12,17 @@ class addecosystemform extends React.Component {
         <body>
             <div className="container-fluid">
                 <div className="row-fluid">
-                    <div className="col-6 offset-3">
+                    <div className="col-xs-6 offset-3">
                         <img className="img-fluid" src= "/pics/applestack.png" id="stacklogo"></img>
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-6 offset-3" id="toprow">
+                    <div className="col-xs-6 offset-3" id="toprow">
                         <h2>Set-up a new guild!</h2>
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-6 offset-3">
+                    <div className="col-xs-6 offset-3">
                         <form method="POST" action="/addecosystem">
                             <div className="spacing">
                                 <label for="group_name" className="label">Guild name</label>

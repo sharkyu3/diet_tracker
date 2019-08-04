@@ -31,23 +31,86 @@ class Ownpage extends React.Component {
 
     return (
           <Layout>
-                <div className = "container">
-                    <div className="row">
-                        <div className="col-10 offset 1">
+                <div className = "container-fluid">
+                    <div className="row-fluid">
+                        <div className="col-xs-10 offset-1">
                             <h2>{userName}'s homepage</h2>
-                            <a href = "/postmeal">Post your meal</a>
-                            <a href = "/postexercise"> Post your workout</a>
+                            <div className="col-xs-8 offset-2" id="homebuttonholder">
+                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal">Log a meal</button>
+                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal">Log a workout</button>
+
+                        <div className="modal fade" id="mealModal" role="dialog">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 className="modal-title">Log your meal</h4>
+                                    </div>
+
+                                    <div className="modal-body">
+                                        <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postmeal/success">
+                                            <div className="form-group">
+                                                <label for="title" className="col-xs-6 control-label">What did you have?</label>
+                                                <input name="title"></input>
+                                            </div>
+                                            <div className="form-group">
+                                                <label for="file" className="col-xs-6 control-label">Photo</label>
+                                                <input type = "file" name="photo_url"></input>
+                                            </div>
+                                            <div className="form-group">
+                                                <label for="cheat" className="col-xs-6 control-label">Is this a cheat meal?</label>
+                                                <input name="cheat"></input>
+                                            </div>
+                                             <div >
+                                                <button type="submit">Log meal</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="modal fade" id="exerciseModal" role="dialog">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 className="modal-title">Log your workout</h4>
+                                    </div>
+
+                                    <div className="modal-body">
+                                        <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postexercise/success">
+                                            <div className="form-group">
+                                                <label for="type" className="col-xs-6 control-label">What workout did you do?</label>
+                                                <input name="type"></input>
+                                            </div>
+                                            <div className="form-group">
+                                                <label for="file" className="col-xs-6 control-label">Photo</label>
+                                                <input type = "file" name="photo_url"></input>
+                                            </div>
+                                            <div className="form-group">
+                                                <label for="duration" className="col-xs-6 control-label">How long was your workout (in mins)?</label>
+                                                <input name="duration"></input>
+                                            </div>
+                                             <div >
+                                                <button type="submit">Log workout</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div className="row">
-                        <div className="col-5 offset 1">
+                    <div className="row-fluid">
+                        <div className="col-xs-4 offset-1">
                             {mealpost}
                         </div>
-                        <div className="col-5 offset">
+                        <div className="col-xs-4 offset-2">
                             {expost}
                         </div>
-
                     </div>
 
                 </div>

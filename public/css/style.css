@@ -29,7 +29,7 @@
 
 #register {
 	font-family: 'Kalam', cursive;
-	font-size: 15px;
+	font-size: 100%;
 	margin: 10px auto;
 	color: #80847e;
 	text-align: center;
@@ -48,7 +48,16 @@
 }
 
 .card{
-	width: 350px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 10px;
+	margin-bottom: 25px;
+	text-align: center;
+	font-family: 'Kalam', cursive;
+}
+
+.card-img-top{
+	border-radius: 10px 10px 0px 0px;
 }
 
 .modal-title{
@@ -154,4 +163,21 @@ p{
 
 #homebuttonholder{
 	text-align: center;
+}
+
+#ecoholder{
+	text-align:center;
+}
+
+#showbuttons{
+	text-align: center;
+}
+
+.showme{
+	margin: 15px;
+	width: 150px;
+}
+
+.card-body{
+	padding-top: 0px
 }

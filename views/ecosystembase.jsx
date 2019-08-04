@@ -15,12 +15,12 @@ class ecoLanding extends React.Component {
         <body>
             <div className="container-fluid">
                 <div className="row-fluid">
-                    <div className="col-6 offset-3">
+                    <div className="col-xs-6 offset-3">
                         <img className="img-fluid" src= "/pics/applestack.png" id="stacklogo"></img>
                     </div>
                 </div>
                 <div className="row-fluid" id="ecobutton-holder">
-                    <div className = "col-4 offset-4">
+                    <div className = "col-xs-4 offset-4">
                         <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Join your guild</button>
                       <div className="modal fade" id="myModal" role="dialog">
                         <div className="modal-dialog">
@@ -55,7 +55,7 @@ class ecoLanding extends React.Component {
                     </div>
                     </div>
                     <div className="row-fluid">
-                        <div className = "col-4 offset-4" id="register-holder">
+                        <div className = "col-xs-4 offset-4" id="register-holder">
                             <a href="/addecosystem" className="eco">Not part of a guild yet? Set-up your own here</a>
                         </div>
                     </div>
