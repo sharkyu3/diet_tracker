@@ -181,3 +181,26 @@ p{
 .card-body{
 	padding-top: 0px
 }
+
+#navbar{
+	height:70px;
+}
+
+.navbar-header{
+	position: absolute;
+	top: -10px;
+	left: 10px;
+}
+
+#maincontainer{
+	margin-top: 80px;
+}
+
+li a{
+	color: black;
+}
+
+#pills{
+	position: absolute;
+	right: 5px;
+}

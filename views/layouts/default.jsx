@@ -2,6 +2,8 @@ var React = require('react');
 
 class DefaultLayout extends React.Component {
     render() {
+        console.log("inside default");
+        console.log(this.props);
         return (
             <html>
             <head>
@@ -15,15 +17,16 @@ class DefaultLayout extends React.Component {
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
             </head>
             <body>
-                <nav className="navbar navbar-default">
-                  <div className="container-fluid">
+                <nav className="navbar navbar-default navbar-fixed-top">
+                  <div className="container-fluid" id="navbar">
                     <div className="navbar-header">
                       <a className="navbar-brand" href="/home">
                         <img alt="Brand" src="/pics/guildsapple.png" height='80'/>
                       </a>
                     </div>
-                    <ul className="nav nav-pills">
-                      <li role="presentation"><a href="/logout">Logout</a></li>
+                    <ul className="nav nav-pills" id="pills">
+                        <li role="presentation"><a href="/logout">Your posts</a></li>
+                        <li role="presentation"><a href="/logout">Logout</a></li>
                     </ul>
                   </div>
                 </nav>

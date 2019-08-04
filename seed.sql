@@ -1,12 +1,12 @@
 INSERT INTO users
 (username, password, email, name, ecosystems_id)
 VALUES
-('HY', '123', 'hy@gmail.com', 'Hui Yu', '1');
+('HY', 'f274614aef62d1c5aa8c039b96d1e3dd1be6554d06697c80ea7b25807e4f20bf', 'hy@gmail.com', 'Hui Yu', '1');
 
 INSERT INTO users
 (username, password, email, name, ecosystems_id)
 VALUES
-('gina', '456', 'gina@gmail.com', 'Gina', '1');
+('gina', '7cb6f1af10f82307724aca274e36ec2c2c07bf79b3ffcd015437f57fca7723d8', 'gina@gmail.com', 'Gina', '1');
 
 INSERT INTO users
 (username, password, email, name, ecosystems_id)

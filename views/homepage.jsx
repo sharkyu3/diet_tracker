@@ -51,7 +51,7 @@ class Homepage extends React.Component {
 
     return (
         <Layout>
-            <div className = "container-fluid">
+            <div className = "container-fluid" id= "maincontainer">
                 <div className="row-fluid">
                     <a href={userlink}>Your posts</a>
                     <div className="col-xs-8 offset-2" id="homebuttonholder">

@@ -31,15 +31,15 @@ class Ownpage extends React.Component {
 
     return (
           <Layout>
-                <div className = "container-fluid">
+                <div className = "container-fluid" id="maincontainer">
                     <div className="row-fluid">
                         <div className="col-xs-10 offset-1">
                             <h2>{userName}'s homepage</h2>
                             <div className="col-xs-8 offset-2" id="homebuttonholder">
-                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal">Log a meal</button>
-                        <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal">Log a workout</button>
+                                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal">Log a meal</button>
+                                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal">Log a workout</button>
 
-                        <div className="modal fade" id="mealModal" role="dialog">
+                         <div className="modal fade" id="mealModal" role="dialog">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
