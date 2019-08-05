@@ -56,11 +56,11 @@ for (let i=0; i<excommentbutton.length; i++) {
         var excommentinput = excommenttext[i].value;
         var user_id = userId;
         var ex_id = excommentbutton[i].id;
-        commentPost(excommentinput, user_id, ex_id);
+        excommentPost(excommentinput, user_id, ex_id);
     })
 }
 
-var commentPost = function(excommentinput, user_id, ex_id){
+var excommentPost = function(excommentinput, user_id, ex_id){
     var data = {"comment": excommentinput, "user_id": user_id, "exercises_id": ex_id}
     console.log("data ", data)
 
@@ -136,7 +136,7 @@ var revealComments = function(meals_id){
             tempdiv.appendChild(tempuser);
 
             let temptime = document.createElement('p');
-            temptime.innerHTML = "Posted at: " + time;
+            temptime.innerHTML = "Posted at: " + String(time);
             tempdiv.appendChild(temptime);
 
             tempdiv.setAttribute("class", "comment-container");
@@ -205,7 +205,7 @@ var revealExComments = function(exercises_id){
             tempdiv.appendChild(tempuser);
 
             let temptime = document.createElement('p');
-            temptime.innerHTML = "Posted at: " + time;
+            temptime.innerHTML = "Posted at: " + String(time);
             tempdiv.appendChild(temptime);
 
             tempdiv.setAttribute("class", "comment-container");
