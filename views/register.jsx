@@ -12,17 +12,17 @@ class register extends React.Component {
         <body>
             <div className="container-fluid">
                 <div className="row-fluid">
-                    <div className="col-xs-6 offset-3">
+                    <div className="col-6 offset-3">
                         <img className="img-fluid" src= "/pics/guildslogo.png" id="reglogo"></img>
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-xs-6 offset-3" id="toprow">
+                    <div className="col-xs-6 offset-3 col-lg-6 offset-lg-3" id="toprow">
                         <h2>Create GUIL:DS account</h2>
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-xs-4 offset-4">
+                    <div className="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3">
                         <form method="POST" action="/welcome">
                             <div className="spacing">
                                 <label for="name" className="label">Name</label>
