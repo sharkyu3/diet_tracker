@@ -25,7 +25,7 @@ module.exports = (dbPoolInstance) => {
         if (error){
             console.log("error: " + error);
         }else{
-            console.log("logged link table properly");
+            console.log("logged link table properly")
         }
     })
   }

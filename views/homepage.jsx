@@ -26,8 +26,9 @@ class Homepage extends React.Component {
                 <h3 className="card-title">{userName}'s meal</h3>
                 <h4 className="card-text">{title}</h4>
                 <p className="card-text">Posted at: {time.toString()}</p>
-                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(" ", "-")}>Comment on this</button>
-                <div className="modal fade" id={title.replace(" ", "-")} role="dialog">
+                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(/ /g, '-')}>Comment on this</button>
+
+                <div className="modal fade" id={title.replace(/ /g, '-')} role="dialog">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -38,15 +39,19 @@ class Homepage extends React.Component {
                                 <form className="form-horizontal" method="POST" action={commentURL}>
                                     <div className="form-group">
                                         <label for="comment" className="col-xs-4 control-label">Comment:</label>
-                                        <input name="comment" className="col-xs-6 offset-1" required></input>
+                                        <input name="comment" className="col-xs-6 offset-1 inputcomment" required></input>
                                     </div>
                                     <div>
-                                        <button type="submit">Log comment</button>
+                                        <button type="submit" className="commentbutton" id={id} data-dismiss="modal">Log comment</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+                </div>
+                <button data-toggle="collapse" data-target="#commentslist" className="showme showoff">Show comments</button>
+                <div id="commentslist" className="collapse">
+
                 </div>
               </div>
             </div>
@@ -72,8 +77,8 @@ class Homepage extends React.Component {
                 <h4 className="card-text">{type}</h4>
                 <p className="card-text">Duration: {duration} mins</p>
                 <p className="card-text">Posted at: {time.toString()}</p>
-                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(" ", "-")}>Comment on this</button>
-                <div className="modal fade" id={type.replace(" ", "-")} role="dialog">
+                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(/ /g, "-")}>Comment on this</button>
+                <div className="modal fade" id={type.replace(/ /g, "-")} role="dialog">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -87,7 +92,7 @@ class Homepage extends React.Component {
                                         <input name="comment" className="col-xs-6 offset-1" required></input>
                                     </div>
                                     <div>
-                                        <button type="submit">Log comment</button>
+                                        <button type="submit" data-dismiss="modal">Log comment</button>
                                     </div>
                                 </form>
                             </div>
@@ -199,7 +204,13 @@ class Homepage extends React.Component {
                     </div>
                 </div>
             </div>
+            <script dangerouslySetInnerHTML={{
+                __html:
+                    `var userId = '${this.props.user_id}';`
+            }}/>
+            <script type="text/javascript" src="/script.js"></script>
         </Layout>
+
     );
   }
 }

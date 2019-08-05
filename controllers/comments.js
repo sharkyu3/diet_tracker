@@ -7,6 +7,7 @@ module.exports = (db) => {
    */
 
   let addCommentControllerCallback = (req, res) => {
+    console.log("inside add comment controller");
     let userId = req.cookies.user_id;
     let mealId = req.params.id;
     let newCommentInfo = req.body;
@@ -15,7 +16,7 @@ module.exports = (db) => {
     var getId = (id) => {
         commentId = id;
         db.comments.linkComment(mealId, commentId);
-        res.redirect('/home');
+        // res.send();
     }
     db.comments.postComment(getId, newCommentInfo, userId);
   };

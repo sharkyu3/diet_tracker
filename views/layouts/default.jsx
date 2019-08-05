@@ -29,7 +29,6 @@ class DefaultLayout extends React.Component {
                   </div>
                 </nav>
             {this.props.children}
-            <script type="text/javascript" src="/script.js"></script>
             </body>
             </html>
         );
