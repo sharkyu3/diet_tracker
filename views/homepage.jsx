@@ -117,7 +117,7 @@ class Homepage extends React.Component {
         <Layout user={userlink}>
             <div className = "container-fluid" id= "maincontainer">
                 <div className="row-fluid">
-                    <div className="col-xs-8 offset-2" id="homebuttonholder">
+                    <div className="col-xs-12" id="homebuttonholder">
                         <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal" id="logbuttons">Log a meal</button>
                         <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal" id="logbuttons">Log a workout</button>
 

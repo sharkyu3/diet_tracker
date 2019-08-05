@@ -32,11 +32,11 @@ class Landing extends React.Component {
                             <div className="modal-body">
                                 <form className="form-horizontal" method="POST" action="/home">
                                 <div className="form-group">
-                                    <label for="Username" className="col-sm-2 control-label" id="usernamelabel">Username</label>
+                                    <label for="Username" className="col-xs-3 control-label" id="usernamelabel">Username</label>
                                     <input type="Username" name="username" required></input>
                                 </div>
                                 <div className="form-group">
-                                    <label for="Password" className="col-sm-2 control-label" id="passwordlabel">Password</label>
+                                    <label for="Password" className="col-xs-3 control-label" id="passwordlabel">Password</label>
                                     <input type="Password" name="password" required></input>
                                 </div>
                                 <div >
