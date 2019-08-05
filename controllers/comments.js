@@ -14,12 +14,12 @@ module.exports = (db) => {
 
     var getId = (id) => {
         commentId = id;
-        db.comments.linkComment(mealId, commentId);
+        db.comments.linkMealsComment(mealId, commentId);
     }
     db.comments.postComment(getId, newCommentInfo, userId);
   };
 
-  let showCommentControllerCallback = (req, res) => {
+  let showmealCommentControllerCallback = (req, res) => {
     let meal_id = req.params.id;
     var getComments = (allComments) => {
         let data = {
@@ -27,7 +27,32 @@ module.exports = (db) => {
             };
             res.json(data);
     }
-    db.comments.getComments(getComments, meal_id);
+    db.comments.getMealComments(getComments, meal_id);
+  };
+
+  let addExCommentControllerCallback = (req, res) => {
+    let userId = req.cookies.user_id;
+    let exId = req.params.id;
+    let newCommentInfo = req.body;
+    let commentId = null;
+
+    var getId = (id) => {
+        commentId = id;
+        db.comments.linkExComment(exId, commentId);
+    }
+    db.comments.postComment(getId, newCommentInfo, userId);
+  };
+
+  let showexerciseCommentControllerCallback = (req, res) => {
+    console.log("inside get exercise comments controller");
+    let exercise_id = req.params.id;
+    var getExComments = (allComments) => {
+        let data = {
+                data : allComments
+            };
+            res.json(data);
+    }
+    db.comments.getExComments(getExComments, exercise_id);
   };
 
   /**
@@ -37,6 +62,8 @@ module.exports = (db) => {
    */
   return {
     add: addCommentControllerCallback,
-    show: showCommentControllerCallback
+    showmeal: showmealCommentControllerCallback,
+    addEx: addExCommentControllerCallback,
+    showEx: showexerciseCommentControllerCallback
   };
 }

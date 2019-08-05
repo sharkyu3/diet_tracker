@@ -44,7 +44,8 @@ module.exports = (app, allModels) => {
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);
   app.get('/editexercisepost/:id', exerciseControllerCallbacks.select);
-  app.get('/showmealcomments/:id', commentsControllerCallbacks.show);
+  app.get('/showmealcomments/:id', commentsControllerCallbacks.showmeal);
+  app.get('/showexercisecomments/:id', commentsControllerCallbacks.showEx);
 
   app.post('/home', usersControllerCallbacks.check);
   app.post('/welcome', usersControllerCallbacks.signup);
@@ -57,6 +58,6 @@ module.exports = (app, allModels) => {
   app.put('/editexercisepost/:id', exerciseControllerCallbacks.edit);
   app.delete('/deleteexercisepost/:id', exerciseControllerCallbacks.delete)
   app.post('/mealcomment/:id', commentsControllerCallbacks.add);
-  // app.post('/excomment/:id')
+  app.post('/excomment/:id', commentsControllerCallbacks.addEx)
 
 };

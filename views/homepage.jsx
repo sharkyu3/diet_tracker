@@ -70,6 +70,8 @@ class Homepage extends React.Component {
         var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
         let datatarget = "#" + x.type;
         let commentURL = "/excomment/"+id;
+        let showcommentURL = "/showexcomments/"+id;
+        let extag = "extag"+id;
 
         return(
             <div className="card excard">
@@ -91,14 +93,19 @@ class Homepage extends React.Component {
                                 <form className="form-horizontal" method="POST" action={commentURL}>
                                     <div className="form-group">
                                         <label for="comment" className="col-xs-4 control-label">Comment:</label>
-                                        <input name="comment" className="col-xs-6 offset-1" required></input>
+                                        <input name="comment" className="col-xs-6 offset-1 inputexcomment" required></input>
                                     </div>
                                     <div>
-                                        <button type="submit" data-dismiss="modal">Log comment</button>
+                                        <button type="submit" className="excommentbutton" data-dismiss="modal" id={id}>Log comment</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" className="accordion revealexcomments" id={id}>Show comments</button>
+                    <div id="excommentslist" list={extag} className="panel excommentslist">
                     </div>
                 </div>
               </div>
@@ -190,7 +197,7 @@ class Homepage extends React.Component {
                 </div>
 
                 <div className = "row-fluid">
-                    <div className="col-xs-12 col-lg-8 offset-lg-2" id="cardholder">
+                    <div className="col-xs-12 col-lg-6 offset-lg-3" id="cardholder">
                         <div className="row-fluid" id="showbuttons">
                             <button data-toggle="collapse" data-target="#mealslist" className="showme showoff" id="showmeal">Show meals</button>
                             <button data-toggle="collapse" data-target="#exerciselist" className="showme showoff" id="showex">Show workouts</button>
