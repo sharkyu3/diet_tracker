@@ -13,10 +13,6 @@ module.exports = (db) => {
     res.render('landing');
   };
 
-  // let loginControllerCallback = (req, res) => {
-  //   res.render('login');
-  // }
-
   let registerControllerCallback = (req, res) => {
     res.render('register');
   };
@@ -26,18 +22,16 @@ module.exports = (db) => {
     let currentPw = sha256(req.body.password + SALT);
     var getInfo = (userInfo) => {
         if (userInfo === null){
-            //AJAX pop up no such log in or register
             console.log("in login controller no result returned");
             res.redirect('/');
         } else{
             if(userInfo.password === currentPw){
-                console.log("in login controller check for password");
+                console.log("in login controller correct password");
                 res.cookie('loggedin', sha256(userInfo.id + SALT));
                 res.cookie('user_id', userInfo.id);
                 res.cookie('eco', userInfo.ecosystems_id);
                 res.redirect('/home');
             }else{
-                //AJAX pop up wrong password
                 res.redirect('/');
                 console.log("in login controller wrong password");
             }
@@ -74,7 +68,6 @@ module.exports = (db) => {
    */
   return {
     index: landingControllerCallback,
-    // setlogin: loginControllerCallback,
     register: registerControllerCallback,
     check: checkPasswordControllerCallback,
     signup: signupControllerCallback,

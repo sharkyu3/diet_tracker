@@ -50,8 +50,8 @@ module.exports = (app, allModels) => {
   app.post('/postexercise/success', upload.single('photo_url'), exerciseControllerCallbacks.addexercise);
   app.post('/addecosystem', ecosystemControllerCallbacks.addecosystem)
   app.post('/logintoecosystem', ecosystemControllerCallbacks.check)
-  app.put('/editfoodpost/:id', mealsControllerCallbacks.edit);
-  app.delete('/deletefoodpost/:id', mealsControllerCallbacks.delete)
+  app.put('/editfoodpost/:id', upload.single('photo_url'), mealsControllerCallbacks.edit);
+  app.delete('/deletefoodpost/:id', upload.single('photo_url'), mealsControllerCallbacks.delete)
   app.put('/editexercisepost/:id', exerciseControllerCallbacks.edit);
   app.delete('/deleteexercisepost/:id', exerciseControllerCallbacks.delete)
 

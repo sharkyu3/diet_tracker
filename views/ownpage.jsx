@@ -33,24 +33,26 @@ class Ownpage extends React.Component {
         let publicId = x.photo_url;
         let title = x.title;
         let time = x.creation_info;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
         let foodURL = "/editfoodpost/"+ x.id;
         let cheat = x.cheat;
 
         return(
-            <div className="col-xs-4" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a></div>)
+            <div className="col-xs-4 col-lg-3" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a>
+            </div>
+            )
     })
 
     let exthumbnail = this.props.exercise.map (x => {
         let publicId = x.photo_url;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
         let exURL = "/editexercisepost/"+ x.id;
         let type = x.type;
         let duration = x.duration;
         let time = x.creation_info;
 
         return(
-            <div className="col-xs-4" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img></a></div>)
+            <div className="col-xs-4 col-lg-3" id="thumbs"><a href={exURL} className="thumbnail"><img src={imgUrl}></img></a></div>)
     })
 
     return (
@@ -132,7 +134,7 @@ class Ownpage extends React.Component {
             </div>
 
                     <div className="row-fluid">
-                        <div className="col-xs-10 offset-1" id="thumbnailholder">
+                        <div className="col-xs-12 col-lg-10 offset-lg-1" id="thumbnailholder">
                             <div className="row-fluid">
                                 <h3 className="logheader">Meal log</h3>
                             </div>
@@ -143,7 +145,7 @@ class Ownpage extends React.Component {
                     </div>
 
                     <div className="row-fluid">
-                        <div className="col-xs-10 offset-1" id="thumbnailholder">
+                        <div className="col-xs-12 col-lg-10 offset-lg-1" id="thumbnailholder">
                             <div className="row-fluid">
                                 <h3 className="logheader">Workout log</h3>
                             </div>

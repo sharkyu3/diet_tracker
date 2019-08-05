@@ -23,7 +23,7 @@ class DefaultLayout extends React.Component {
                       </a>
                     </div>
                     <ul className="nav nav-pills" id="pills">
-                        <li role="presentation"><a href="/logout">Your posts</a></li>
+                        <li role="presentation"><a href={this.props.user}>Your posts</a></li>
                         <li role="presentation"><a href="/logout">Logout</a></li>
                     </ul>
                   </div>

@@ -14,10 +14,6 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  // let addExerciseControllerCallback = (req, res) => {
-  //   res.render('addexercise');
-  // };
-
   let postExerciseControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
     let newExerciseInfo = req.body;
@@ -30,9 +26,11 @@ module.exports = (db) => {
 
   let selectExerciseControllerCallback = (req, res) => {
     let exerciseId = req.params.id;
+    let userId = req.cookies.user_id;
     let data = {
         exercise: null,
         exerciseId: exerciseId,
+        user: userId
     }
     var getExercise = (exerciseItem) => {
         data.exercise = exerciseItem;
@@ -63,7 +61,6 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    // index: addExerciseControllerCallback,
     addexercise: postExerciseControllerCallback,
     select: selectExerciseControllerCallback,
     edit: editExerciseControllerCallback,

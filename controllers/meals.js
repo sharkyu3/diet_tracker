@@ -14,10 +14,6 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  // let addMealControllerCallback = (req, res) => {
-  //   res.render('addmeal');
-  // };
-
   let postMealControllerCallback = (req, res) => {
     let userId = req.cookies.user_id;
     let newMealInfo = req.body;
@@ -29,9 +25,11 @@ module.exports = (db) => {
 
   let selectMealControllerCallback = (req, res) => {
     let foodId = req.params.id;
+    let userId = req.cookies.user_id;
     let data = {
         food: null,
         foodId: foodId,
+        user: userId
     }
     var getFood = (foodItem) => {
         data.food = foodItem;
@@ -42,7 +40,7 @@ module.exports = (db) => {
 
   let editMealControllerCallback = (req, res) => {
     let foodId = req.params.id;
-    let userId = req.cookies.user_id
+    let userId = req.cookies.user_id;
     let editFoodInfo = req.body;
     db.meals.editMeal(editFoodInfo, foodId);
     res.redirect('/home/'+userId);
@@ -62,7 +60,6 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    // index: addMealControllerCallback,
     addmeal: postMealControllerCallback,
     select: selectMealControllerCallback,
     edit: editMealControllerCallback,

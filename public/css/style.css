@@ -231,6 +231,13 @@ li a{
 	font-size: 140%;
 }
 
+#deletebutton{
+	background-color: #ff0000bf;
+	border: none;
+	font-family: 'Kalam', cursive;
+	font-size: 140%;
+}
+
 #showoff{
 	border-radius: 10px;
 	background-color: #8ace66c2;
@@ -241,4 +248,8 @@ li a{
 
 h4{
 	font-family: 'Kalam', cursive;
+}
+
+#postholder{
+	margin-top:20px;
 }
