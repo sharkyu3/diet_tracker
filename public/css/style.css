@@ -216,11 +216,11 @@ li a{
 	text-align:center;
 }
 
-#thumbs a{
+.thumbs a{
 	margin-bottom: 0px;
 }
 
-#thumbs img{
+.thumbs img{
 	margin: 0px auto;
 }
 
@@ -252,4 +252,14 @@ h4{
 
 #postholder{
 	margin-top:20px;
+	font-family: 'Kalam', cursive;
+	text-align: center;
+}
+
+#postholder img{
+	border-radius: 10px;
+}
+
+#true{
+	border: 5px solid red;
 }

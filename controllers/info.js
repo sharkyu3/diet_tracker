@@ -48,7 +48,8 @@ module.exports = (db) => {
         let data = {
             food: null,
             exercise: null,
-            username: null
+            username: null,
+            user_id: userId,
         };
 
         var getInfo = (allFood) => {

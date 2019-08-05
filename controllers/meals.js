@@ -19,7 +19,7 @@ module.exports = (db) => {
     let newMealInfo = req.body;
     cloudinary.uploader.upload(req.file.path, function(result) {
         db.meals.postMeal(newMealInfo, userId, result.public_id);
-        res.redirect('/home');
+        res.redirect('/home/'+userId);
     });
   };
 

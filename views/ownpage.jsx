@@ -5,29 +5,7 @@ var Layout = require('./layouts/default');
 class Ownpage extends React.Component {
   render() {
     let userName = this.props.username.username;
-    let mealpost = this.props.food.map ( x => {
-        let title = x.title;
-        let publicId = x.photo_url;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
-        let userName = x.username;
-        let cheat = x.cheat;
-        let time = x.creation_info;
-        let foodURL = "/editfoodpost/"+ x.id;
-
-        return<div><p>{title}</p><p> <img src = {imgUrl}></img> </p><p> Posted at: {time.toString()}</p><a href={foodURL}>Edit post</a></div>
-    })
-
-    let expost = this.props.exercise.map (x => {
-        let type = x.type;
-        let duration = x.duration;
-        let userName = x.username;
-        let time = x.creation_info;
-        let publicId = x.photo_url;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
-        let exerciseURL = "/editexercisepost/" + x.id;
-
-        return<div><p>{type}</p><p> {duration} mins </p><p> <img src = {imgUrl}></img> </p><p> Posted at: {time.toString()}</p><a href={exerciseURL}>Edit post</a></div>
-    })
+    let userURL = "/home/"+this.props.user_id;
 
     let foodthumbnail = this.props.food.map (x => {
         let publicId = x.photo_url;
@@ -38,7 +16,7 @@ class Ownpage extends React.Component {
         let cheat = x.cheat;
 
         return(
-            <div className="col-xs-4 col-lg-3" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a>
+            <div className="col-xs-4 col-lg-3 thumbs"><a href={foodURL} className="thumbnail" id={cheat.toString()}><img src={imgUrl}></img></a>
             </div>
             )
     })

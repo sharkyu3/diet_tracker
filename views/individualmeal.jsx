@@ -20,7 +20,7 @@ class foodpage extends React.Component {
                 <div className="row-fluid" id="postholder">
                         <div className="col-xs-10 offset-xs-1 col-lg-8 offset-lg-2">
                             <div className="row-fluid">
-                                <h3>{title}</h3>
+                                <h2>{title}</h2>
                             </div>
                             <div className="row-fluid">
                                 <img src = {imgUrl}></img>
