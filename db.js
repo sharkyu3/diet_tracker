@@ -76,6 +76,9 @@ const exerciseModelObject = exerciseFunction( pool );
 const ecoFunction = require('./models/ecosystem');
 const ecoModelObject = ecoFunction( pool );
 
+const commentFunction = require('./models/comments');
+const commentModelObject = commentFunction( pool );
+
 /*
  * ===================================================
  * ===================================================
@@ -104,5 +107,6 @@ module.exports = {
   info: infoModelObject,
   meals: mealsModelObject,
   exercise: exerciseModelObject,
-  ecosystem: ecoModelObject
+  ecosystem: ecoModelObject,
+  comments: commentModelObject
 };

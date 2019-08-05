@@ -8,11 +8,14 @@ class Homepage extends React.Component {
     let ecoDescription = this.props.eco.description;
     let userlink = "/home/" + this.props.user_id;
     let mealpost = this.props.food.map ( x => {
+        let id = x.id;
         let title = x.title;
         let publicId = x.photo_url;
         let userName = x.username;
         let cheat = x.cheat;
         let time = x.creation_info;
+        let datatarget = "#" + x.title;
+        let commentURL = "/mealcomment/"+id;
 
         var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
 
@@ -23,18 +26,43 @@ class Homepage extends React.Component {
                 <h3 className="card-title">{userName}'s meal</h3>
                 <h4 className="card-text">{title}</h4>
                 <p className="card-text">Posted at: {time.toString()}</p>
+                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(" ", "-")}>Comment on this</button>
+                <div className="modal fade" id={title.replace(" ", "-")} role="dialog">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 className="modal-title">{title}</h4>
+                            </div>
+                            <div className="modal-body">
+                                <form className="form-horizontal" method="POST" action={commentURL}>
+                                    <div className="form-group">
+                                        <label for="comment" className="col-xs-4 control-label">Comment:</label>
+                                        <input name="comment" className="col-xs-6 offset-1" required></input>
+                                    </div>
+                                    <div>
+                                        <button type="submit">Log comment</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </div>
             </div>
             )
     })
 
     let expost = this.props.exercise.map (x => {
+        let id = x.id;
         let type = x.type;
         let duration = x.duration;
         let userName = x.username;
         let time = x.creation_info;
         let publicId = x.photo_url;
         var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
+        let datatarget = "#" + x.type;
+        let commentURL = "/excomment/"+id;
 
         return(
             <div className="card excard">
@@ -44,6 +72,28 @@ class Homepage extends React.Component {
                 <h4 className="card-text">{type}</h4>
                 <p className="card-text">Duration: {duration} mins</p>
                 <p className="card-text">Posted at: {time.toString()}</p>
+                <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(" ", "-")}>Comment on this</button>
+                <div className="modal fade" id={type.replace(" ", "-")} role="dialog">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 className="modal-title">{type}</h4>
+                            </div>
+                            <div className="modal-body">
+                                <form className="form-horizontal" method="POST" action={commentURL}>
+                                    <div className="form-group">
+                                        <label for="comment" className="col-xs-4 control-label">Comment:</label>
+                                        <input name="comment" className="col-xs-6 offset-1" required></input>
+                                    </div>
+                                    <div>
+                                        <button type="submit">Log comment</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </div>
             </div>
             )

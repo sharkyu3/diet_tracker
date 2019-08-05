@@ -31,6 +31,7 @@ module.exports = (app, allModels) => {
   const mealsControllerCallbacks = require('./controllers/meals')(allModels);
   const exerciseControllerCallbacks = require('./controllers/exercise')(allModels);
   const ecosystemControllerCallbacks = require('./controllers/ecosystem')(allModels);
+  const commentsControllerCallbacks = require('./controllers/comments')(allModels);
 
 
 
@@ -54,5 +55,7 @@ module.exports = (app, allModels) => {
   app.delete('/deletefoodpost/:id', upload.single('photo_url'), mealsControllerCallbacks.delete)
   app.put('/editexercisepost/:id', exerciseControllerCallbacks.edit);
   app.delete('/deleteexercisepost/:id', exerciseControllerCallbacks.delete)
+  app.post('/mealcomment/:id', commentsControllerCallbacks.add);
+  // app.post('/excomment/:id')
 
 };
