@@ -49,8 +49,6 @@ var commentPost = function(commentinput, user_id, meals_id){
 }
 
 
-
-
 let revealcomments = document.querySelectorAll(".revealcomments");
 
 for (let i=0; i<revealcomments.length; i++) {
@@ -83,6 +81,10 @@ var revealComments = function(meals_id){
         console.log(response.data.length);
 
         let bucket = document.querySelector(`[list="${meals_id}"]`);
+
+        while (bucket.firstChild) {
+          element.removeChild(element.firstChild);
+        }
 
         for(let i=0; i<response.data.length; i++){
             let content = response.data[i].comment;
