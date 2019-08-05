@@ -17,15 +17,20 @@ module.exports = (db) => {
         let data = {
             food: null,
             exercise: null,
-            user_id: userId
+            user_id: userId,
+            username: null,
+            eco: null
         };
 
         var getInfo = (allFood) => {
             data.food = allFood.reverse();
             var getEx = (allExercises) => {
                 data.exercise = allExercises.reverse();
-                // once done, render
-                res.render('homepage', data);
+                var getEco = (ecoInfo) => {
+                    data.eco = ecoInfo;
+                    res.render('homepage', data);
+                }
+                db.ecosystem.getEco(getEco, ecoId);
             }
             // once done, get exercises
             db.info.getAllExercises(getEx, ecoId);
@@ -43,14 +48,19 @@ module.exports = (db) => {
         let data = {
             food: null,
             exercise: null,
+            username: null
         };
 
         var getInfo = (allFood) => {
             data.food = allFood.reverse();
             var getEx = (allExercises) => {
                 data.exercise = allExercises.reverse();
-                // once done, render
-                res.render('ownpage', data);
+                var getUser = (username) => {
+                    data.username = username;
+                    // once done, render
+                    res.render('ownpage', data);
+                }
+                db.users.getUsername(getUser, userId);
             }
             // once done, get exercises
             db.info.getUserExercises(getEx, userId);

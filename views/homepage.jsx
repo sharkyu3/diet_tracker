@@ -4,8 +4,8 @@ var Layout = require('./layouts/default');
 
 class Homepage extends React.Component {
   render() {
-    let ecoName = this.props.food[0].group_name;
-    let ecoDescription = this.props.food[0].description;
+    let ecoName = this.props.eco.group_name;
+    let ecoDescription = this.props.eco.description;
     let userlink = "/home/" + this.props.user_id;
     let mealpost = this.props.food.map ( x => {
         let title = x.title;
@@ -14,7 +14,7 @@ class Homepage extends React.Component {
         let cheat = x.cheat;
         let time = x.creation_info;
 
-        var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
+        var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
 
         return(
             <div className="card mealcard">
@@ -34,7 +34,7 @@ class Homepage extends React.Component {
         let userName = x.username;
         let time = x.creation_info;
         let publicId = x.photo_url;
-        var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
+        var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
 
         return(
             <div className="card excard">
@@ -53,7 +53,6 @@ class Homepage extends React.Component {
         <Layout>
             <div className = "container-fluid" id= "maincontainer">
                 <div className="row-fluid">
-                    <a href={userlink}>Your posts</a>
                     <div className="col-xs-8 offset-2" id="homebuttonholder">
                         <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#mealModal" id="logbuttons">Log a meal</button>
                         <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target="#exerciseModal" id="logbuttons">Log a workout</button>
@@ -70,11 +69,11 @@ class Homepage extends React.Component {
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postmeal/success">
                                             <div className="form-group">
                                                 <label for="title" className="col-xs-4 control-label">What did you have?</label>
-                                                <input name="title" className="col-xs-6 offset-1"></input>
+                                                <input name="title" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="file" className="col-xs-4 control-label">Photo</label>
-                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="cheat" className="col-xs-4 control-label">Is this a cheat meal?</label>
@@ -105,15 +104,15 @@ class Homepage extends React.Component {
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postexercise/success">
                                             <div className="form-group">
                                                 <label for="type" className="col-xs-4 control-label">What workout did you do?</label>
-                                                <input name="type" className="col-xs-6 offset-1"></input>
+                                                <input name="type" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="file" className="col-xs-4 control-label">Photo</label>
-                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="duration" className="col-xs-4 control-label">How long was your workout (in mins)?</label>
-                                                <input name="duration" className="col-xs-6 offset-1"></input>
+                                                <input name="duration" className="col-xs-6 offset-1" required></input>
                                             </div>
                                              <div >
                                                 <button type="submit">Log workout</button>
@@ -127,14 +126,14 @@ class Homepage extends React.Component {
                 </div>
 
                 <div className="row-fluid">
-                    <div className="col-xs" id="ecoholder">
+                    <div className="col-xs-12" id="ecoholder">
                         <h2>{ecoName}</h2>
                         <h4>{ecoDescription}</h4>
                     </div>
                 </div>
 
                 <div className = "row-fluid">
-                    <div className="col-xs" id="cardholder">
+                    <div className="col-xs-12 col-lg-8 offset-lg-2" id="cardholder">
                         <div className="row-fluid" id="showbuttons">
                             <button data-toggle="collapse" data-target="#mealslist" className="showme" id="showoff">Show meals</button>
                             <button data-toggle="collapse" data-target="#exerciselist" className="showme" id="showoff">Show workouts</button>

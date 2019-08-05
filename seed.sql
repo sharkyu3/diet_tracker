@@ -36,6 +36,11 @@ VALUES
 INSERT INTO meals
 (title, photo_URL, cheat, users_id)
 VALUES
+('Roti Prata', 'fcphdl7iitbkejyyam9w', 'TRUE', '1');
+
+INSERT INTO meals
+(title, photo_URL, cheat, users_id)
+VALUES
 ('Spaghetti', 'apye4wh3sqjdka7jlgih', 'FALSE', '2');
 
 INSERT INTO meals

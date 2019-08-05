@@ -38,8 +38,21 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
+  let getEco = (callback, ecoId) => {
+    let query = "SELECT ecosystems.group_name, ecosystems.description FROM ecosystems WHERE ecosystems.id = $1";
+    let arr = [ecoId];
+    dbPoolInstance.query(query, arr, (error, queryResult) => {
+        if (error) {
+            console.log("error: " + error);
+        }else{
+            callback(queryResult.rows[0]);
+        }
+    })
+  }
+
   return {
     postEcosystem,
-    letsLogin
+    letsLogin,
+    getEco
   };
 };

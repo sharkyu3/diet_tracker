@@ -33,11 +33,11 @@ class Landing extends React.Component {
                                 <form className="form-horizontal" method="POST" action="/home">
                                 <div className="form-group">
                                     <label for="Username" className="col-sm-2 control-label" id="usernamelabel">Username</label>
-                                    <input type="Username" name="username"></input>
+                                    <input type="Username" name="username" required></input>
                                 </div>
                                 <div className="form-group">
                                     <label for="Password" className="col-sm-2 control-label" id="passwordlabel">Password</label>
-                                    <input type="Password" name="password"></input>
+                                    <input type="Password" name="password" required></input>
                                 </div>
                                 <div >
                                     <button type="submit">Log In</button>
@@ -55,7 +55,7 @@ class Landing extends React.Component {
                 </div>
 
                 <div className = "row-fluid">
-                    <div className = "col-xs-4 offset-4" id="register-holder">
+                    <div className = "col-xs-12" id="register-holder">
                             <a href="/register" id="register">Not a user yet? Register here</a>
                     </div>
                 </div>

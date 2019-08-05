@@ -4,11 +4,11 @@ var Layout = require('./layouts/default');
 
 class Ownpage extends React.Component {
   render() {
-    let userName = this.props.food[0].username;
+    let userName = this.props.username.username;
     let mealpost = this.props.food.map ( x => {
         let title = x.title;
         let publicId = x.photo_url;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
         let userName = x.username;
         let cheat = x.cheat;
         let time = x.creation_info;
@@ -23,7 +23,7 @@ class Ownpage extends React.Component {
         let userName = x.username;
         let time = x.creation_info;
         let publicId = x.photo_url;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
         let exerciseURL = "/editexercisepost/" + x.id;
 
         return<div><p>{type}</p><p> {duration} mins </p><p> <img src = {imgUrl}></img> </p><p> Posted at: {time.toString()}</p><a href={exerciseURL}>Edit post</a></div>
@@ -35,6 +35,7 @@ class Ownpage extends React.Component {
         let time = x.creation_info;
         let imgUrl = cloudinary.url(`${publicId}`, { width: 200, height: 200});
         let foodURL = "/editfoodpost/"+ x.id;
+        let cheat = x.cheat;
 
         return(
             <div className="col-xs-4" id="thumbs"><a href={foodURL} className="thumbnail"><img src={imgUrl}></img></a></div>)
@@ -74,15 +75,18 @@ class Ownpage extends React.Component {
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postmeal/success">
                                             <div className="form-group">
                                                 <label for="title" className="col-xs-4 control-label">What did you have?</label>
-                                                <input name="title" className="col-xs-6 offset-1"></input>
+                                                <input name="title" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="file" className="col-xs-4 control-label">Photo</label>
-                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
-                                                <label for="cheat" className="col-xs-4 control-label" >Is this a cheat meal?</label>
-                                                <input name="cheat" className="col-xs-6 offset-1"></input>
+                                                <label for="cheat" className="col-xs-4 control-label">Is this a cheat meal?</label>
+                                                <select name="cheat"className="col-xs-6 offset-1">
+                                                    <option value="false">NOPE!</option>
+                                                    <option value="true">yes...</option>
+                                                </select>
                                             </div>
                                              <div >
                                                 <button type="submit">Log meal</button>
@@ -105,15 +109,15 @@ class Ownpage extends React.Component {
                                         <form encType="multipart/form-data" className="form-horizontal" method="POST" action="/postexercise/success">
                                             <div className="form-group">
                                                 <label for="type" className="col-xs-4 control-label">What workout did you do?</label>
-                                                <input name="type" className="col-xs-6 offset-1"></input>
+                                                <input name="type" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="file" className="col-xs-4 control-label">Photo</label>
-                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1"></input>
+                                                <input type = "file" name="photo_url" className="col-xs-6 offset-1" required></input>
                                             </div>
                                             <div className="form-group">
                                                 <label for="duration" className="col-xs-4 control-label">How long was your workout (in mins)?</label>
-                                                <input name="duration" className="col-xs-6 offset-1"></input>
+                                                <input name="duration" className="col-xs-6 offset-1" required></input>
                                             </div>
                                              <div >
                                                 <button type="submit">Log workout</button>

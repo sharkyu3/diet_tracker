@@ -51,25 +51,22 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  // let getUsers = (callback, username) => {
-  //   let query = "SELECT * FROM users";
-  //   dbPoolInstance.query(query, (error, queryResult) => {
-  //     if( error ){
-  //       console.log("error: " + error);
-  //     }else{
-  //       for(let i=0; i<queryResult.rows.length; i++){
-  //           if (queryResult.rows[i].username === username){
-
-  //           }
-  //       }
-  //     }
-  //   });
-  // };
+  let getUsername = (callback, userId) => {
+    let query = "SELECT users.username FROM users WHERE users.id = $1";
+    let arr = [userId];
+    dbPoolInstance.query(query, arr, (error, queryResult) => {
+        if (error) {
+            console.log("error: " + error);
+        }else{
+            callback(queryResult.rows[0]);
+        }
+    })
+  }
 
   return {
     letsLogin,
     registerUser,
     updateInfo,
-    // getUsers
+    getUsername
   };
 };

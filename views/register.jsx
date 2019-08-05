@@ -26,19 +26,19 @@ class register extends React.Component {
                         <form method="POST" action="/welcome">
                             <div className="spacing">
                                 <label for="name" className="label">Name</label>
-                                <input name="name" className="registerinput"></input>
+                                <input name="name" className="registerinput" required></input>
                             </div>
                             <div className="spacing">
                                 <label for="username" className="label">Username</label>
-                                <input name="username" className="registerinput"></input>
+                                <input name="username" className="registerinput" required></input>
                             </div>
                             <div className="spacing">
                                 <label for="password" className="label">Password</label>
-                                <input name="password" className="registerinput"></input>
+                                <input name="password" className="registerinput" required></input>
                             </div>
                             <div className="spacing">
                                 <label for="email" className="label">Email</label>
-                                <input name="email" className="registerinput"></input>
+                                <input name="email" className="registerinput" required></input>
                             </div>
                             <div className="spacing">
                                 <button type="submit" id="regsubmit">Sign up</button>
