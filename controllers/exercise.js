@@ -20,7 +20,7 @@ module.exports = (db) => {
 
     cloudinary.uploader.upload(req.file.path, function(result) {
         db.exercise.postExercise(newExerciseInfo, userId, result.public_id);
-        res.redirect('/home'+userId);
+        res.redirect('/home/'+userId);
     });
   };
 
