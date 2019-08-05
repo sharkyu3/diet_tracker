@@ -135,11 +135,11 @@ class Homepage extends React.Component {
                 <div className = "row-fluid">
                     <div className="col-xs-12 col-lg-8 offset-lg-2" id="cardholder">
                         <div className="row-fluid" id="showbuttons">
-                            <button data-toggle="collapse" data-target="#mealslist" className="showme" id="showoff">Show meals</button>
-                            <button data-toggle="collapse" data-target="#exerciselist" className="showme" id="showoff">Show workouts</button>
+                            <button data-toggle="collapse" data-target="#mealslist" className="showme showoff" id="showmeal">Show meals</button>
+                            <button data-toggle="collapse" data-target="#exerciselist" className="showme showoff" id="showex">Show workouts</button>
                         </div>
                         <div className="row-fluid">
-                            <div id="mealslist" className="collapse">
+                            <div id="mealslist" className="collapse in">
                                 {mealpost}
                             </div>
                             <div id="exerciselist" className="collapse">
