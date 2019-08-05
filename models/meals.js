@@ -30,9 +30,9 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  let editMeal = (editFoodInfo, foodId) => {
+  let editMeal = (editFoodInfo, foodId, result) => {
     let query = "UPDATE meals SET title=$1, photo_URL=$2, cheat=$3 WHERE meals.id = $4";
-    let arr = [editFoodInfo.title, editFoodInfo.photo_url, editFoodInfo.cheat, foodId];
+    let arr = [editFoodInfo.title, result, editFoodInfo.cheat, foodId];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);

@@ -42,8 +42,11 @@ module.exports = (db) => {
     let foodId = req.params.id;
     let userId = req.cookies.user_id;
     let editFoodInfo = req.body;
-    db.meals.editMeal(editFoodInfo, foodId);
-    res.redirect('/home/'+userId);
+
+    cloudinary.uploader.upload(req.file.path, function(result) {
+        db.meals.editMeal(editFoodInfo, foodId, result.public_id);
+        res.redirect('/home/'+userId);
+    });
   };
 
   let deleteMealControllerCallback = (req, res) => {

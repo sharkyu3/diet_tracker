@@ -30,9 +30,9 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  let editExercise = (editExerciseInfo, exerciseId) => {
-    let query = "UPDATE exercises SET type=$1, duration=$2 WHERE exercises.id = $3";
-    let arr = [editExerciseInfo.type, editExerciseInfo.duration, exerciseId];
+  let editExercise = (editExerciseInfo, exerciseId, result) => {
+    let query = "UPDATE exercises SET type=$1, photo_URL=$2, duration=$3 WHERE exercises.id = $4";
+    let arr = [editExerciseInfo.type, result, editExerciseInfo.duration, exerciseId];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);

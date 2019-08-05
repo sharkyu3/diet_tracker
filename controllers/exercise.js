@@ -43,8 +43,11 @@ module.exports = (db) => {
     let exerciseId = req.params.id;
     let userId = req.cookies.user_id
     let editExerciseInfo = req.body;
-    db.exercise.editExercise(editExerciseInfo, exerciseId);
-    res.redirect('/home/'+userId);
+
+    cloudinary.uploader.upload(req.file.path, function(result) {
+        db.exercise.editExercise(editExerciseInfo, exerciseId, result.public_id);
+        res.redirect('/home/'+userId);
+    });
   };
 
   let deleteExerciseControllerCallback = (req, res) => {

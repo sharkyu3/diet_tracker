@@ -10,7 +10,7 @@ class foodpage extends React.Component {
     let foodId = this.props.foodId;
     let cheat = this.props.food.cheat;
     let publicId = this.props.food.photo_url;
-    var imgUrl = cloudinary.url(`${publicId}`, { width: 400, height: 400});
+    var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250, crop: 'scale'});
     let editURL = `/editfoodpost/${foodId}/?_method=put`
     let deleteURL = `/deletefoodpost/${foodId}/?_method=delete`
 
