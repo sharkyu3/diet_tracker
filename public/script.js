@@ -28,6 +28,7 @@ for (let i=0; i<commentbutton.length; i++) {
 
 var commentPost = function(commentinput, user_id, meals_id){
     var data = {"comment": commentinput, "user_id": user_id, "meals_id": meals_id}
+    console.log("data ", data)
 
     var xmlhttp = new XMLHttpRequest();
     var url = 'mealcomment/'+meals_id;
@@ -41,16 +42,76 @@ var commentPost = function(commentinput, user_id, meals_id){
         console.log("done");
         console.log(this.responseText);
     });
+
     xmlhttp.open("POST", url);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send(JSON.stringify(data));
-
-
 }
 
 
-// create a function to do a post request
 
+
+let revealcomments = document.querySelectorAll(".revealcomments");
+
+for (let i=0; i<revealcomments.length; i++) {
+    revealcomments[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if(panel.style.display === "block"){
+            panel.style.display = "none";
+        }else{
+            panel.style.display = "block"
+        }
+        var meals_id = revealcomments[i].id;
+        revealComments(meals_id);
+    })
+}
+
+var revealComments = function(meals_id){
+    var xmlhttp = new XMLHttpRequest();
+    var url = '/showmealcomments/'+meals_id;
+    var idurl = '#'+meals_id;
+
+    xmlhttp.addEventListener("load", function() {
+        if(this.status === 200){
+            console.log("view comments");
+        }else{
+            console.log("error");
+        }
+        console.log("done");
+        let response = JSON.parse(this.responseText);
+        console.log(response.data.length);
+
+        let bucket = document.querySelector(`[list="${meals_id}"]`);
+
+        for(let i=0; i<response.data.length; i++){
+            let content = response.data[i].comment;
+            let time = response.data[i].creationinfo;
+            let user = response.data[i].username;
+
+            let tempdiv = document.createElement("div");
+
+            let tempcontent = document.createElement('h4');
+            tempcontent.innerHTML = content;
+            tempdiv.appendChild(tempcontent);
+
+            let tempuser = document.createElement("p");
+            tempuser.innerHTML = "Posted by: " + user;
+            tempdiv.appendChild(tempuser);
+
+            let temptime = document.createElement('p');
+            temptime.innerHTML = "Posted at: " + time;
+            tempdiv.appendChild(temptime);
+
+            tempdiv.setAttribute("class", "comment-container");
+            bucket.appendChild(tempdiv);
+        }
+    });
+
+    xmlhttp.open("GET", url);
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp.send(JSON.stringify(meals_id));
+}
 
 
 document.addEventListener('DOMContentLoaded', function( event ){

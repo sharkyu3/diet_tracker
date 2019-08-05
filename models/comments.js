@@ -6,6 +6,8 @@
 module.exports = (dbPoolInstance) => {
 
   let postComment = (callback, newCommentInfo, userId, result) => {
+    console.log("inside post comment model");
+    console.log(newCommentInfo);
     let query = "INSERT INTO comments (comment, users_id) VALUES ($1, $2) RETURNING id";
     let arr = [newCommentInfo.comment, userId];
     dbPoolInstance.query(query, arr, (error, queryResult) => {
@@ -30,39 +32,15 @@ module.exports = (dbPoolInstance) => {
     })
   }
 
-  let getMeal = (callback, foodId) => {
-    let query = "SELECT meals.title, meals.photo_URL, meals.cheat, meals.creation_info FROM meals WHERE meals.id = $1";
-    let values = [foodId];
+  let getComments = (callback, meal_id) => {
+    let query = "SELECT comments.comment, comments.creationinfo, users.username FROM meals INNER JOIN meals_comments ON (meals.id = meals_comments.meals_id) INNER JOIN comments ON (comments.id = meals_comments.comments_id) INNER JOIN users ON (comments.users_id = users.id) WHERE meals.id = $1";
+    let values = [meal_id];
     dbPoolInstance.query(query, values, (error, queryResult) => {
       if( error ){
         console.log("error: " + error);
       }else{
-        console.log("successful meal query");
-        callback(queryResult.rows[0]);
-      }
-    });
-  };
-
-  let editMeal = (editFoodInfo, foodId) => {
-    let query = "UPDATE meals SET title=$1, photo_URL=$2, cheat=$3 WHERE meals.id = $4";
-    let arr = [editFoodInfo.title, editFoodInfo.photo_url, editFoodInfo.cheat, foodId];
-    dbPoolInstance.query(query, arr, (error, queryResult) => {
-      if( error ){
-        console.log("error: " + error);
-      }else{
-        console.log("edited meal successfully");
-      }
-    });
-  };
-
-  let deleteMeal = (foodId) => {
-    let query = "DELETE FROM meals WHERE meals.id=$1";
-    let arr = [foodId];
-    dbPoolInstance.query(query, arr, (error, queryResult) => {
-      if( error ){
-        console.log("error: " + error);
-      }else{
-        console.log("deleted meal successfully");
+        console.log("successful comments query");
+        callback(queryResult.rows);
       }
     });
   };
@@ -70,8 +48,6 @@ module.exports = (dbPoolInstance) => {
   return {
     postComment,
     linkComment,
-    // getMeal,
-    // editMeal,
-    // deleteMeal
+    getComments,
   };
 };

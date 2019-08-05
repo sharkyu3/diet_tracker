@@ -7,7 +7,6 @@ module.exports = (db) => {
    */
 
   let addCommentControllerCallback = (req, res) => {
-    console.log("inside add comment controller");
     let userId = req.cookies.user_id;
     let mealId = req.params.id;
     let newCommentInfo = req.body;
@@ -16,41 +15,20 @@ module.exports = (db) => {
     var getId = (id) => {
         commentId = id;
         db.comments.linkComment(mealId, commentId);
-        // res.send();
     }
     db.comments.postComment(getId, newCommentInfo, userId);
   };
 
-  let selectMealControllerCallback = (req, res) => {
-    let foodId = req.params.id;
-    let userId = req.cookies.user_id;
-    let data = {
-        food: null,
-        foodId: foodId,
-        user: userId
+  let showCommentControllerCallback = (req, res) => {
+    let meal_id = req.params.id;
+    var getComments = (allComments) => {
+        let data = {
+                data : allComments
+            };
+            res.json(data);
     }
-    var getFood = (foodItem) => {
-        data.food = foodItem;
-        res.render('individualmeal', data);
-    }
-    db.meals.getMeal(getFood, foodId);
+    db.comments.getComments(getComments, meal_id);
   };
-
-  let editMealControllerCallback = (req, res) => {
-    let foodId = req.params.id;
-    let userId = req.cookies.user_id;
-    let editFoodInfo = req.body;
-    db.meals.editMeal(editFoodInfo, foodId);
-    res.redirect('/home/'+userId);
-  };
-
-  let deleteMealControllerCallback = (req, res) => {
-    let foodId = req.params.id;
-    let userId = req.cookies.user_id;
-    db.meals.deleteMeal(foodId);
-    res.redirect('/home/'+userId);
-  };
-
 
   /**
    * ===========================================
@@ -59,5 +37,6 @@ module.exports = (db) => {
    */
   return {
     add: addCommentControllerCallback,
+    show: showCommentControllerCallback
   };
 }

@@ -44,6 +44,7 @@ module.exports = (app, allModels) => {
   app.get('/home/:id', infoControllerCallbacks.ownpage);
   app.get('/editfoodpost/:id', mealsControllerCallbacks.select);
   app.get('/editexercisepost/:id', exerciseControllerCallbacks.select);
+  app.get('/showmealcomments/:id', commentsControllerCallbacks.show);
 
   app.post('/home', usersControllerCallbacks.check);
   app.post('/welcome', usersControllerCallbacks.signup);

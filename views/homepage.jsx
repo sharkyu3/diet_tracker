@@ -16,6 +16,7 @@ class Homepage extends React.Component {
         let time = x.creation_info;
         let datatarget = "#" + x.title;
         let commentURL = "/mealcomment/"+id;
+        let showcommentURL = "/showmealcomments/"+id;
 
         var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
 
@@ -49,9 +50,10 @@ class Homepage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button data-toggle="collapse" data-target="#commentslist" className="showme showoff">Show comments</button>
-                <div id="commentslist" className="collapse">
-
+                <div>
+                    <button type="button" className="accordion revealcomments" id={id}>Show comments</button>
+                    <div id="commentslist" list={id} className="panel commentslist">
+                    </div>
                 </div>
               </div>
             </div>
