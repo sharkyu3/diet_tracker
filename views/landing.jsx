@@ -60,7 +60,6 @@ class Landing extends React.Component {
                     </div>
                 </div>
             </div>
-            <script type="text/javascript" src="/script.js"></script>
         </body>
       </html>
     );

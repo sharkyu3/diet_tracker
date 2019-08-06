@@ -68,6 +68,23 @@ module.exports = (db) => {
         };
         // get food first
         db.info.getUserMeals(getInfo, userId);
+
+
+
+        /**
+        db.info.getMeals(user_id, functions(allFood){
+            data.food
+            db.getUserExer(xx, xx(exx){
+                data.exx
+            })
+        })
+
+        ggetInfo(input, callback){
+
+        }
+
+
+        */
     }
   };
 

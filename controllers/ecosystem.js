@@ -23,16 +23,14 @@ module.exports = (db) => {
     let ecoId = null;
 
     var getEcoId = (getEcoID) => {
+        console.log("inside add eco controller");
         ecoId = getEcoID;
         res.cookie('eco', ecoId);
         res.redirect('/home');
+        db.users.addeco(userId, ecoId);
     }
     db.ecosystem.postEcosystem(getEcoId, newEcoInfo, userId);
   };
-
-  // let signinEcosystemControllerCallback = (req, res) => {
-  //   res.render('ecologin');
-  // }
 
 let checkPasswordControllerCallback = (req, res) => {
     let currentGroupname = req.body.group_name;
@@ -40,7 +38,6 @@ let checkPasswordControllerCallback = (req, res) => {
 
     var getInfo = (groupInfo) => {
         if (groupInfo === null){
-            //AJAX pop up no such log in or register
             console.log("in group login controller no result returned");
             res.redirect('/logintoecosystem');
         } else{
@@ -52,7 +49,6 @@ let checkPasswordControllerCallback = (req, res) => {
                 db.users.updateInfo(userId, ecoId);
                 res.redirect('/home');
             }else{
-                //AJAX pop up wrong password
                 res.redirect('/logintoecosystem');
                 console.log("in group login controller wrong password");
             }
@@ -70,7 +66,6 @@ let checkPasswordControllerCallback = (req, res) => {
     index: addEcosystemControllerCallback,
     addpage: addformControllerCallback,
     addecosystem: postEcosystemControllerCallback,
-    // signin: signinEcosystemControllerCallback,
     check: checkPasswordControllerCallback
   };
 }
