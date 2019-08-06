@@ -11,7 +11,7 @@ class Ownpage extends React.Component {
         let publicId = x.photo_url;
         let title = x.title;
         let time = x.creation_info;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'fill'});
         let foodURL = "/editfoodpost/"+ x.id;
         let cheat = x.cheat;
 
@@ -23,7 +23,7 @@ class Ownpage extends React.Component {
 
     let exthumbnail = this.props.exercise.map (x => {
         let publicId = x.photo_url;
-        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
+        let imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'fill'});
         let exURL = "/editexercisepost/"+ x.id;
         let type = x.type;
         let duration = x.duration;

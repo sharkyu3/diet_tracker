@@ -10,7 +10,7 @@ class exercisepage extends React.Component {
     let publicId = this.props.exercise.photo_url;
     let type = this.props.exercise.type;
     let duration = this.props.exercise.duration;
-    var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250, crop: 'scale'});
+    var imgUrl = cloudinary.url(`${publicId}`, { width: 250, height: 250, crop: 'fill'});
     let editURL = `/editexercisepost/${exerciseId}/?_method=put`
     let deleteURL = `/deleteexercisepost/${exerciseId}/?_method=delete`
 

@@ -18,7 +18,7 @@ class Homepage extends React.Component {
         let commentURL = "/mealcomment/"+id;
         let showcommentURL = "/showmealcomments/"+id;
 
-        var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
+        var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'fill'});
 
         return(
             <div className="card mealcard">
@@ -67,7 +67,7 @@ class Homepage extends React.Component {
         let userName = x.username;
         let time = x.creation_info;
         let publicId = x.photo_url;
-        var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'scale'});
+        var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'fill'});
         let datatarget = "#" + x.type;
         let commentURL = "/excomment/"+id;
         let showcommentURL = "/showexcomments/"+id;
