@@ -18,22 +18,22 @@ class addecosystemform extends React.Component {
                 </div>
                 <div className="row-fluid">
                     <div className="col-xs-6 offset-xs-3" id="toprow">
-                        <h2>Set-up a new guild!</h2>
+                        <h2>Set-up a new punnet!</h2>
                     </div>
                 </div>
                 <div className="row-fluid">
                     <div className="col-xs-6 offset-xs-3">
                         <form method="POST" action="/addecosystem">
                             <div className="spacing">
-                                <label for="group_name" className="label">Guild name</label>
+                                <label for="group_name" className="label">Punnet name</label>
                                 <input name="group_name" className="registerinput"></input>
                             </div>
                             <div className="spacing">
-                                <label for="group_pw" className="label">Guild password</label>
+                                <label for="group_pw" className="label">Punnet password</label>
                                 <input name="group_pw" className="registerinput"></input>
                             </div>
                             <div className="spacing">
-                                <label for="description" className="label">Guild mission</label>
+                                <label for="description" className="label">Punnet mission</label>
                                 <input name="description" className="registerinput"></input>
                             </div>
                             <div className="spacing">

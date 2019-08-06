@@ -4,7 +4,7 @@ class Landing extends React.Component {
   render() {
     return (
       <html>
-        <title>GUIL:DS</title>
+        <title>punnet</title>
         <meta charSet="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
@@ -27,7 +27,7 @@ class Landing extends React.Component {
                           <div className="modal-content">
                             <div className="modal-header">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 className="modal-title">Log in to GUIL:DS</h4>
+                              <h4 className="modal-title">Log in to punnet</h4>
                             </div>
                             <div className="modal-body">
                                 <form className="form-horizontal" method="POST" action="/home">
