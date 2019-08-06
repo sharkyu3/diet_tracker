@@ -21,18 +21,18 @@ class ecoLanding extends React.Component {
                 </div>
                 <div className="row-fluid" id="ecobutton-holder">
                     <div className = "col-xs-6 offset-3">
-                        <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Join your guild</button>
+                        <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Join a punnet</button>
                       <div className="modal fade" id="myModal" role="dialog">
                         <div className="modal-dialog">
                           <div className="modal-content">
                             <div className="modal-header">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 className="modal-title">Join your guild!</h4>
+                              <h4 className="modal-title">Join a punnet!</h4>
                             </div>
                             <div className="modal-body">
                                 <form className="form-horizontal" method="POST" action="/logintoecosystem">
                                 <div className="form-group">
-                                    <label for="group_name" class="col-xs-3 control-label" id="usernamelabel">Guild name</label>
+                                    <label for="group_name" class="col-xs-3 control-label" id="usernamelabel">Name your punnet</label>
                                     <input type="group_name" name="group_name"></input>
                                 </div>
                                 <div className="form-group">
@@ -45,7 +45,7 @@ class ecoLanding extends React.Component {
                               </form>
                             </div>
                             <div className="modal-footer">
-                              <a href="/addecosystem" id="register">Not part of a guild yet? Set-up your own here</a>
+                              <a href="/addecosystem" id="register">Not part of a punnet yet? Set-up your own here</a>
                             </div>
                           </div>
 
@@ -56,7 +56,7 @@ class ecoLanding extends React.Component {
                     </div>
                     <div className="row-fluid">
                         <div className = "col-xs-6 offset-3" id="register-holder">
-                            <a href="/addecosystem" className="eco">Not part of a guild yet? Set-up your own here</a>
+                            <a href="/addecosystem" className="eco">Not part of a punnet yet? Set-up your own here</a>
                         </div>
                     </div>
                 </div>

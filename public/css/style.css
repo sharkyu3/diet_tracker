@@ -6,6 +6,11 @@
   margin-bottom:20px;
 }
 
+nav{
+	font-family: 'Kalam', cursive;
+	font-size: 140%;
+}
+
 #reglogo{
 	display: block;
   margin-left: auto;
@@ -207,7 +212,7 @@ li a{
 	color: #f74a2b;
 	text-decoration: underline;
 	font-family: 'Kalam', cursive;
-	font-size: 120%;
+	font-size: 150%;
 	font-weight: bolder;
 }
 

@@ -12,17 +12,17 @@ class addecosystemform extends React.Component {
         <body>
             <div className="container-fluid">
                 <div className="row-fluid">
-                    <div className="col-xs-6 offset-3">
+                    <div className="col-xs-6 offset-xs-3">
                         <img className="img-fluid" src= "/pics/applestack.png" id="stacklogo"></img>
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-xs-6 offset-3" id="toprow">
+                    <div className="col-xs-6 offset-xs-3" id="toprow">
                         <h2>Set-up a new guild!</h2>
                     </div>
                 </div>
                 <div className="row-fluid">
-                    <div className="col-xs-6 offset-3">
+                    <div className="col-xs-6 offset-xs-3">
                         <form method="POST" action="/addecosystem">
                             <div className="spacing">
                                 <label for="group_name" className="label">Guild name</label>
@@ -46,8 +46,8 @@ class addecosystemform extends React.Component {
                             </div>
                             <div className="spacing">
                                 <button type="submit" id="regsubmit">Let's get going!</button>
-                                <p>Invite your friends to join your guild so you can support one another in achieving the guild mission!</p>
-                                <p>All they need is the guild name and password so they can log in too!</p>
+                                <p>Invite your friends to join your punnet so you can support one another in achieving the punnet mission!</p>
+                                <p>All they need is the punnet name and password so they can log in too!</p>
                             </div>
                           </form>
                     </div>

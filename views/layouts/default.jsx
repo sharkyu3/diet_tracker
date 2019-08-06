@@ -19,7 +19,7 @@ class DefaultLayout extends React.Component {
                   <div className="container-fluid" id="navbar">
                     <div className="navbar-header">
                       <a className="navbar-brand" href="/home">
-                        <img alt="Brand" src="/pics/guildsapple.png" height='80'/>
+                        <img alt="Brand" src="/pics/guildsapple.png" height='70'/>
                       </a>
                     </div>
                     <ul className="nav nav-pills" id="pills">
