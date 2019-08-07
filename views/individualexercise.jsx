@@ -1,11 +1,13 @@
 var React = require("react");
 var cloudinary = require('cloudinary');
+var moment = require('moment');
 var Layout = require('./layouts/default');
 
 class exercisepage extends React.Component {
   render() {
     let userlink = "/home/" + this.props.user;
     let time = this.props.exercise.creation_info;
+    let editedtime = moment.parseZone(time);
     let exerciseId = this.props.exerciseId;
     let publicId = this.props.exercise.photo_url;
     let type = this.props.exercise.type;
@@ -29,7 +31,7 @@ class exercisepage extends React.Component {
                             <h4>{duration} mins</h4>
                         </div>
                         <div className="row-fluid">
-                            <p>{time.toString()}</p>
+                            <p>{editedtime.toString()}</p>
                         </div>
                         <div className="row-fluid">
                             <button type="button" className="btn btn-info btn-default post" data-toggle="modal" data-target="#exedit" id="logbuttons">Edit workout</button>

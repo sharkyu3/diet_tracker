@@ -1,11 +1,13 @@
 var React = require("react");
 var cloudinary = require('cloudinary');
+var moment = require('moment');
 var Layout = require('./layouts/default');
 
 class foodpage extends React.Component {
   render() {
     let userlink = "/home/" + this.props.user;
     let time = this.props.food.creation_info;
+    let editedtime = moment.parseZone(time);
     let title= this.props.food.title;
     let foodId = this.props.foodId;
     let cheat = this.props.food.cheat;
@@ -29,7 +31,7 @@ class foodpage extends React.Component {
                                 <p>Cheat meal? {cheat.toString()}</p>
                             </div>
                             <div className="row-fluid">
-                                <p>{time.toString()}</p>
+                                <p>{editedtime.toString()}</p>
                             </div>
 
                             <div className="row-fluid">

@@ -1,5 +1,6 @@
 var React = require("react");
 var cloudinary = require('cloudinary');
+var moment = require('moment');
 var Layout = require('./layouts/default');
 
 class Homepage extends React.Component {
@@ -7,6 +8,7 @@ class Homepage extends React.Component {
     let ecoName = this.props.eco.group_name;
     let ecoDescription = this.props.eco.description;
     let userlink = "/home/" + this.props.user_id;
+
     let mealpost = this.props.food.map ( x => {
         let id = x.id;
         let title = x.title;
@@ -14,6 +16,8 @@ class Homepage extends React.Component {
         let userName = x.username;
         let cheat = x.cheat;
         let time = x.creation_info;
+        let editedtime = moment.parseZone(time);
+
         let datatarget = "#" + x.title;
         let commentURL = "/mealcomment/"+id;
         let showcommentURL = "/showmealcomments/"+id;
@@ -26,7 +30,7 @@ class Homepage extends React.Component {
               <div className="card-body">
                 <h3 className="card-title">{userName}'s meal</h3>
                 <h4 className="card-text">{title}</h4>
-                <p className="card-text">Posted at: {time.toString()}</p>
+                <p className="card-text">Posted at: {editedtime.toString()}</p>
                 <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(/ /g, '-')}>Comment on this</button>
 
                 <div className="modal fade" id={title.replace(/ /g, '-')} role="dialog">
@@ -66,6 +70,7 @@ class Homepage extends React.Component {
         let duration = x.duration;
         let userName = x.username;
         let time = x.creation_info;
+        let editedtime = moment.parseZone(time);
         let publicId = x.photo_url;
         var imgUrl = cloudinary.url(`${publicId}`, { width: 800, height: 800, crop: 'fill'});
         let datatarget = "#" + x.type;
@@ -80,7 +85,7 @@ class Homepage extends React.Component {
                 <h3 className="card-title">{userName}'s workout</h3>
                 <h4 className="card-text">{type}</h4>
                 <p className="card-text">Duration: {duration} mins</p>
-                <p className="card-text">Posted at: {time.toString()}</p>
+                <p className="card-text">Posted at: {editedtime.toString()}</p>
                 <button type="button" className="btn btn-info btn-lg post" data-toggle="modal" data-target={datatarget.replace(/ /g, "-")}>Comment on this</button>
                 <div className="modal fade" id={type.replace(/ /g, "-")} role="dialog">
                     <div className="modal-dialog">
